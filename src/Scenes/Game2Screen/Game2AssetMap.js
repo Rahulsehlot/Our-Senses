@@ -3,7 +3,7 @@ const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
 const IntroMap = {
-  id: "Scene2",
+  id: "Scene22",
 
   Bg: `${imgUrl}Texture-BG_Dark.svg`,
 

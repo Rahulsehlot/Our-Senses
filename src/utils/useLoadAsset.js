@@ -20,69 +20,73 @@ export default function useLoadAsset(Map) {
       sprites: [],
     };
 
-    const loadImage = new Promise((resolve, reject) => {
-      LoadImage(Map.Bg)
+    if (!Assets[Map?.id]) {
+      const loadImage = new Promise((resolve, reject) => {
+        LoadImage(Map.Bg)
+          .then((v) => {
+            setBg(v);
+            resolve(v);
+          })
+          .catch((err) => {
+            reject("unable to loadImage");
+          });
+      });
+
+      const loadAudio = Promise.all(
+        Map.sounds.map((v) => {
+          return AudioPlayer(v);
+        })
+      );
+
+      loadAudio
         .then((v) => {
-          setBg(v);
-          resolve(v);
+          newSceneData["sounds"] = v;
         })
         .catch((err) => {
-          reject("unable to loadImage");
+          console.log(err);
         });
-    });
 
-    const loadAudio = Promise.all(
-      Map.sounds.map((v) => {
-        return AudioPlayer(v);
-      })
-    );
+      const loadSprites = Promise.all(
+        Map.sprites.map((v) => {
+          return LoadImage(v);
+        })
+      );
 
-    loadAudio
-      .then((v) => {
-        newSceneData["sounds"] = v;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      loadSprites
+        .then((v) => {
+          newSceneData["sprites"] = v;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
-    const loadSprites = Promise.all(
-      Map.sprites.map((v) => {
-        return LoadImage(v);
-      })
-    );
+      const loadLottie = Promise.all(
+        Map.lottie.map((v) => {
+          return LoadJson(v);
+        })
+      );
 
-    loadSprites
-      .then((v) => {
-        newSceneData["sprites"] = v;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      loadLottie
+        .then((v) => {
+          newSceneData["lottie"] = v;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
-    const loadLottie = Promise.all(
-      Map.lottie.map((v) => {
-        return LoadJson(v);
-      })
-    );
+      setAssets({ ...Assets, [Map.id]: newSceneData });
 
-    loadLottie
-      .then((v) => {
-        newSceneData["lottie"] = v;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    setAssets({ ...Assets, [Map.id]: newSceneData });
-
-    Promise.all([loadImage, loadAudio, loadSprites, loadLottie])
-      .then((v) => {
-        // console.log(v)
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      Promise.all([loadImage, loadAudio, loadSprites, loadLottie])
+        .then((v) => {
+          // console.log(v)
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   return { Loading, Bg };

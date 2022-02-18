@@ -27,7 +27,7 @@ export default function Game2({
   const [option1Verify, setoption1Verify] = useState(0);
   const [option2Wrng, setoption2Wrng] = useState(0);
   const [grey, setGrey] = useState(false);
-
+  console.log(Assets)
   const { intro } = Assets;
 
   const Ref = useRef(null);
@@ -48,11 +48,11 @@ export default function Game2({
     setWrong(G2W1);
   }, []);
 
-  const playCorrectSound = (onEnd = () => {}) => {
-    if (Assets?.Scene2 && !Loading) {
+  const playCorrectSound = (onEnd = () => { }) => {
+    if (Assets?.Scene22 && !Loading) {
       setplaying(true);
-      Assets?.Scene2?.sounds[6]?.play();
-      Assets?.Scene2?.sounds[6].on("end", () => {
+      Assets?.Scene22?.sounds[6]?.play();
+      Assets?.Scene22?.sounds[6]?.on("end", () => {
         setplaying(false);
         onEnd();
       });
@@ -60,10 +60,10 @@ export default function Game2({
   };
 
   const playWrongSound = () => {
-    if (Assets?.Scene2 && !Loading) {
+    if (Assets?.Scene22 && !Loading) {
       setplaying(true);
-      Assets?.Scene2?.sounds[7]?.play();
-      Assets?.Scene2?.sounds[7].on("end", () => {
+      Assets?.Scene22?.sounds[7]?.play();
+      Assets?.Scene22?.sounds[7]?.on("end", () => {
         setplaying(false);
       });
     }
@@ -105,12 +105,12 @@ export default function Game2({
 
   useEffect(() => {
     console.log(Loading);
-    if (Assets?.Scene2 && !Loading) {
+    if (Assets?.Scene22 && !Loading) {
       setplaying(true);
       setGrey(true);
 
-      Assets?.Scene2?.sounds[flowCount + 1]?.play();
-      Assets?.Scene2?.sounds[flowCount + 1].on("end", () => {
+      Assets?.Scene22?.sounds[flowCount + 1]?.play();
+      Assets?.Scene22?.sounds[flowCount + 1]?.on("end", () => {
         setplaying(false);
         setGrey(false);
       });
@@ -125,16 +125,16 @@ export default function Game2({
 
   const replayBtn = () => {
     if (playing === false) {
-      if (Assets?.Scene2 && !Loading) {
+      if (Assets?.Scene22 && !Loading) {
         setplaying(true);
         setGrey(true);
 
-        Assets?.Scene2?.sounds[8].play();
-        Assets?.Scene2?.sounds[8].on("end", () => {
+        Assets?.Scene22?.sounds[8]?.play();
+        Assets?.Scene22?.sounds[8]?.on("end", () => {
           if (playing === false) {
-            if (Assets?.Scene2 && !Loading) {
-              Assets?.Scene2?.sounds[flowCount + 1].play();
-              Assets?.Scene2?.sounds[flowCount + 1].on("end", () => {
+            if (Assets?.Scene22 && !Loading) {
+              Assets?.Scene22?.sounds[flowCount + 1]?.play();
+              Assets?.Scene22?.sounds[flowCount + 1]?.on("end", () => {
                 setplaying(false);
                 setGrey(false);
               });
@@ -152,14 +152,14 @@ export default function Game2({
         <>
           {/* Title */}
           <Image
-            src={Assets?.Scene2?.sprites[G2QiD]}
+            src={Assets?.Scene22?.sprites[G2QiD]}
             alt="txt"
             id="fadeup"
             className="Game2_question_img"
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[answer]}
+            src={Assets?.Scene22?.sprites[answer]}
             alt="txt"
             id="fadeup"
             onClick={Option1}
@@ -173,7 +173,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[wrong]}
+            src={Assets?.Scene22?.sprites[wrong]}
             alt="txt"
             id="fadeup"
             onClick={Option2}
@@ -196,7 +196,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.Scene2?.sprites[55]}
+              src={Assets?.Scene22?.sprites[55]}
               alt="txt"
               id="fadeup"
               onClick={replayBtn}
