@@ -23,6 +23,7 @@ export default function Game2({
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const [G2QiD, setG2QiD] = useState();
+  const [G2Sound, setG2Sound] = useState();
   const [answer, setAnswer] = useState(0);
   const [wrong, setWrong] = useState(0);
   const [number, setNumber] = useState(null);
@@ -34,7 +35,9 @@ export default function Game2({
 
   const Ref = useRef(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setG2Sound(flowCount);
+  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -78,10 +81,10 @@ export default function Game2({
     }
   };
 
-  console.log(flowCount);
   const Option1 = () => {
     if (answer < 29) {
       if (playing === false) {
+        Assets?.Scene22?.sounds[flowCount]?.stop();
         playCorrectSound();
         if (playing === false) {
           setoption1Verify(1);
@@ -115,16 +118,14 @@ export default function Game2({
       setoption2Wrng(1);
     }
   };
+  const [replayId, setreplayId] = useState(null);
 
   useEffect(() => {
-    console.log(Loading);
     if (Assets?.Scene22 && !Loading) {
-      setplaying(true);
       setGrey(true);
-
+      setreplayId(Assets?.Scene22?.sounds[flowCount]);
       Assets?.Scene22?.sounds[flowCount]?.play();
       Assets?.Scene22?.sounds[flowCount]?.on("end", () => {
-        setplaying(false);
         setGrey(false);
       });
     }
@@ -136,23 +137,22 @@ export default function Game2({
     }, 1000);
   }, [option2Wrng]);
 
+  const soundID = G2Sound;
+  console.log(soundID);
+
   const replayBtn = () => {
     if (playing === false) {
       if (Assets?.Scene22 && !Loading) {
         setplaying(true);
         setGrey(true);
-
         Assets?.Scene22?.sounds[7]?.play();
         Assets?.Scene22?.sounds[7]?.on("end", () => {
-          if (playing === false) {
-            if (Assets?.Scene22 && !Loading) {
-              Assets?.Scene22?.sounds[flowCount]?.play();
-              Assets?.Scene22?.sounds[flowCount]?.on("end", () => {
-                setplaying(false);
-                setGrey(false);
-              });
-            }
-          }
+          console.log(soundID);
+          replayId.play();
+          replayId?.on("end", () => {
+            setplaying(false);
+            setGrey(false);
+          });
         });
       }
     }

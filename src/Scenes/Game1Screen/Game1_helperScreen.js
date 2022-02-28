@@ -66,11 +66,9 @@ export default function Game1({
 
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
-      setplaying(true);
       setGrey(true);
       Assets?.Scene2?.sounds[G1SoundId]?.play();
       Assets?.Scene2?.sounds[G1SoundId]?.on("end", () => {
-        setplaying(false);
         setGrey(false);
       });
     }
@@ -96,24 +94,28 @@ export default function Game1({
   }, []);
 
   const playCorrectSound = () => {
-    if (Assets?.Scene2 && !Loading) {
-      setplaying(true);
-      Assets?.Scene2?.sounds[16]?.play();
-      Assets?.Scene2?.sounds[16]?.on("end", () => {
-        sethintPlacement(hintPlacement + 1);
-        setSceneId("/Game1");
-        setplaying(false);
-      });
+    if (playing === false) {
+      if (Assets?.Scene2 && !Loading) {
+        setplaying(true);
+        Assets?.Scene2?.sounds[16]?.play();
+        Assets?.Scene2?.sounds[16]?.on("end", () => {
+          sethintPlacement(hintPlacement + 1);
+          setSceneId("/Game1");
+          setplaying(false);
+        });
+      }
     }
   };
 
   const playWrongSound = () => {
-    if (Assets?.Scene2 && !Loading) {
-      setplaying(true);
-      Assets?.Scene2?.sounds[17]?.play();
-      Assets?.Scene2?.sounds[17]?.on("end", () => {
-        setplaying(false);
-      });
+    if (playing === false) {
+      if (Assets?.Scene2 && !Loading) {
+        setplaying(true);
+        Assets?.Scene2?.sounds[17]?.play();
+        Assets?.Scene2?.sounds[17]?.on("end", () => {
+          setplaying(false);
+        });
+      }
     }
   };
 
@@ -153,11 +155,10 @@ export default function Game1({
       setHint(verify);
       if (verify === "Nose") {
         Assets?.Scene2?.sounds[18]?.stop();
-
         setClicked(1);
-
         setHand(0);
         setS1(counter + 1);
+        Assets?.Scene2?.sounds[G1SoundId]?.stop();
         playCorrectSound();
         setnoseButtonCrct(1);
       } else {
@@ -183,6 +184,8 @@ export default function Game1({
         setClicked(1);
 
         setS1(counter + 1);
+        Assets?.Scene2?.sounds[G1SoundId]?.stop();
+
         settongueButtonCrct(1);
         playCorrectSound();
       } else {
@@ -209,6 +212,8 @@ export default function Game1({
         setHand(0);
 
         setS1(counter + 1);
+        Assets?.Scene2?.sounds[G1SoundId]?.stop();
+
         playCorrectSound();
         setearsButtonCrct(1);
       } else {
@@ -234,6 +239,8 @@ export default function Game1({
 
         setHand(0);
         setS1(counter + 1);
+        Assets?.Scene2?.sounds[G1SoundId]?.stop();
+
         playCorrectSound();
         setskinButtonCrct(1);
       } else {
@@ -259,6 +266,8 @@ export default function Game1({
         setClicked(1);
         setHand(0);
         setS1(counter + 1);
+        Assets?.Scene2?.sounds[G1SoundId]?.stop();
+
         playCorrectSound();
         setEyeButtonCrct(1);
       } else {
@@ -310,7 +319,8 @@ export default function Game1({
                 : "senses_smell_img_game1"
             }
             onClick={Nose}
-            style={{ cursor: playing === false ? "pointer" : "" }}
+            // style={{ cursor: playing === false ? "pointer" : "" }}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
@@ -340,7 +350,8 @@ export default function Game1({
                 : "senses_taste_img_game1"
             }
             onClick={Tongue}
-            style={{ cursor: playing === false ? "pointer" : "" }}
+            // style={{ cursor: playing === false ? "pointer" : "" }}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
@@ -367,7 +378,8 @@ export default function Game1({
                 : "senses_hearing_img_game1"
             }
             onClick={Ear}
-            style={{ cursor: playing === false ? "pointer" : "" }}
+            // style={{ cursor: playing === false ? "pointer" : "" }}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
@@ -394,7 +406,8 @@ export default function Game1({
                 : "senses_touch_img_game1"
             }
             onClick={Skin}
-            style={{ cursor: playing === false ? "pointer" : "" }}
+            // style={{ cursor: playing === false ? "pointer" : "" }}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
@@ -421,7 +434,8 @@ export default function Game1({
                 : "senses_vision_img_game1"
             }
             onClick={Eye}
-            style={{ cursor: playing === false ? "pointer" : "" }}
+            // style={{ cursor: playing === false ? "pointer" : "" }}
+            style={{ cursor: "pointer" }}
           />
 
           <Image
@@ -466,9 +480,8 @@ export default function Game1({
               //     : "audio_replay_icon"
               // }
               onClick={replayBtn}
-              style={{
-                cursor: playing === false ? "pointer" : "",
-              }}
+              style={{ cursor: playing === false ? "pointer" : "" }}
+              // style={{ cursor: "pointer" }}
             />
           </div>
           <div className={"Hand_icon_" + hint}>
