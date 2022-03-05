@@ -18,6 +18,7 @@ import IntroMap from "./Scenes/Game2Screen/Game2AssetMap";
 
 function App() {
   const { Loading } = useLoadAsset(IntroMap);
+
   const [Load, setLoad] = useState(true);
   const [next, setNext] = useState(0);
   const [counter, setCounter] = useState(6);

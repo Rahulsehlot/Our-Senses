@@ -23,7 +23,7 @@ export default function Game2({
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const [G2QiD, setG2QiD] = useState();
-  const [G2Sound, setG2Sound] = useState();
+  const [G2Sound, setG2Sound] = useState(0);
   const [answer, setAnswer] = useState(0);
   const [wrong, setWrong] = useState(0);
   const [number, setNumber] = useState(null);
@@ -34,6 +34,10 @@ export default function Game2({
   const { intro } = Assets;
 
   const Ref = useRef(null);
+
+  const stop_all_sounds = () => {
+    Assets?.Scene22?.sounds?.map((v) => v?.stop());
+  };
 
   useEffect(() => {
     setG2Sound(flowCount);
@@ -108,6 +112,7 @@ export default function Game2({
 
       const timeout = setTimeout(() => {
         setSceneId("/Scene6");
+        stop_all_sounds();
       }, 1000);
     }
   };
@@ -137,24 +142,15 @@ export default function Game2({
     }, 1000);
   }, [option2Wrng]);
 
-  const soundID = G2Sound;
-  console.log(soundID);
-
   const replayBtn = () => {
-    if (playing === false) {
-      if (Assets?.Scene22 && !Loading) {
-        setplaying(true);
-        setGrey(true);
-        Assets?.Scene22?.sounds[7]?.play();
-        Assets?.Scene22?.sounds[7]?.on("end", () => {
-          console.log(soundID);
-          replayId.play();
-          replayId?.on("end", () => {
-            setplaying(false);
-            setGrey(false);
-          });
-        });
-      }
+    Assets?.Scene22?.sounds[flowCount]?.stop();
+
+    if (Assets?.Scene22 && !Loading) {
+      setGrey(true);
+      replayId.play();
+      replayId?.on("end", () => {
+        setGrey(false);
+      });
     }
   };
 
@@ -256,7 +252,7 @@ export default function Game2({
                 : "audio_replay_icon"
             }
             style={{
-              opacity: grey === false ? "1" : "0.65",
+              opacity: grey === false ? "1" : "0.50",
             }}
           >
             <Image

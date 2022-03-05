@@ -2,8 +2,8 @@ const imgUrl = "internal/images/";
 const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
-const IntroMap = {
-  id: "Scene2",
+const Game2Map = {
+  id: "Game2",
 
   Bg: `${imgUrl}Texture-BG_Light.svg`,
 
@@ -68,4 +68,4 @@ const IntroMap = {
   counter: 6,
 };
 
-export default IntroMap;
+export default Game2Map;

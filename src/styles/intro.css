@@ -75,29 +75,29 @@
 }
 
 .senses_smell {
-  width: 15%;
+  width: 14%;
   position: fixed;
   top: 87%;
   font-size: 3vw !important;
   font-weight: 700;
-  right: 6%;
+  right: 7%;
   color: #fff;
 }
 
 .senses_taste {
-  width: 15%;
+  width: 14%;
   position: fixed;
-  top: 42.5%;
+  top: 39.5%;
   font-size: 3vw !important;
   font-weight: 700;
-  left: 7%;
+  left: 7.5%;
   color: #fff;
 }
 
 .senses_hearing {
-  width: 15%;
+  width: 14%;
   position: fixed;
-  top: 42.5%;
+  top: 39.5%;
   font-size: 3vw !important;
   font-weight: 700;
   right: 8%;
@@ -105,21 +105,21 @@
 }
 
 .senses_touch {
-  width: 15%;
+  width: 14%;
   position: fixed;
   top: 87%;
   font-size: 3vw !important;
   font-weight: 700;
-  left: 7%;
+  left: 7.5%;
   color: #fff;
 }
 
 .senses_vision {
-  width: 15%;
+  width: 14%;
   position: fixed;
   top: 87%;
   font-size: 3vw !important;
   font-weight: 700;
-  left: 42%;
+  left: 43%;
   color: #fff;
 }
