@@ -63,6 +63,11 @@ export default function Scene2({ scenename }) {
             alt="txt"
             id="fadeup"
             className="senses_smell_img"
+            style={{
+              boxShadow:
+                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              borderRadius: "100%",
+            }}
           />
 
           <Image
@@ -77,6 +82,11 @@ export default function Scene2({ scenename }) {
             alt="txt"
             id="fadeup"
             className="senses_taste_img"
+            style={{
+              boxShadow:
+                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              borderRadius: "100%",
+            }}
           />
           <Image
             src={Assets?.Scene2?.sprites[8]}
@@ -90,6 +100,11 @@ export default function Scene2({ scenename }) {
             alt="txt"
             id="fadeup"
             className="senses_hearing_img"
+            style={{
+              boxShadow:
+                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              borderRadius: "100%",
+            }}
           />
 
           <Image
@@ -110,6 +125,11 @@ export default function Scene2({ scenename }) {
             alt="txt"
             id="fadeup"
             className="senses_touch_img"
+            style={{
+              boxShadow:
+                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              borderRadius: "100%",
+            }}
           />
 
           <Image
@@ -125,7 +145,10 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_vision_img"
             style={{
+              borderRadius: "100%",
               top: "3%",
+              boxShadow:
+                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
             }}
           />
 
