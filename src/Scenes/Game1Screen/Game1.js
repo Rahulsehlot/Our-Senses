@@ -15,6 +15,8 @@ export default function Game1({
   countdownSound,
   hintPlacement,
   sethintPlacement,
+  shuffle,
+  setshuffle,
 }) {
   const { Bg, Loading } = useLoadAsset(Game2Map);
 
@@ -41,7 +43,9 @@ export default function Game1({
   const [hand, setHand] = useState(0);
 
   useEffect(() => {
-    const G1 = counter;
+    const number = Math.floor(Math.random() * (13 - 5 + 1)) + 5;
+    console.log(number);
+    const G1 = number;
     setHelper(G1);
     setCounter(G1 + 1);
 
