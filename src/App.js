@@ -7,14 +7,13 @@ import Scene2 from "./Scenes/Scene2-Body/Scene2";
 import Game1 from "./Scenes/Game1Screen/Game1";
 import Scene3Organs from "./Scenes/Scene3Organs/Scene3Organs";
 import Scene4 from "./Scenes/Scene4-Body/Scene4";
-import Game1_Helper from "./Scenes/Game1Screen/Game1_helperScreen";
 import Scene5 from "./Scenes/Scene5-Body/Scene5";
 import Game2 from "./Scenes/Game2Screen/Game2";
 import Scene6 from "./Scenes/Scene6-Body/Scene6";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import useLoadAsset from "./utils/useLoadAsset";
-import IntroMap from "./Scenes/Game2Screen/Game2AssetMap";
+import IntroMap from "./Scenes/intro/AssetMap";
 
 function App() {
   const { Loading } = useLoadAsset(IntroMap);
@@ -29,6 +28,9 @@ function App() {
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
   const [hintPlacement, sethintPlacement] = useState(0);
+  // const [G1ImgID, setG1ImgID] = useState(6);
+  // const [G1SoundId, setG1SoundId] = useState(0);
+
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
@@ -44,7 +46,7 @@ function App() {
 
   useEffect(() => {
     if (BG_sound !== null) {
-      BG_sound?.play();
+      // BG_sound?.play();
     }
   }, [BG_sound]);
 
@@ -154,7 +156,7 @@ function App() {
         />
       </Router>
       <Router sceneId="/Scene4">
-        <Scene4 scenename={"Scene2"} />
+        <Scene4 />
       </Router>
       <Router sceneId="/Scene5">
         <Scene5 scenename={"Scene2"} />
@@ -217,13 +219,15 @@ function App() {
           flowCount={4}
         />
       </Router>
-      <Router sceneId="/Game1">
+      {/* <Router sceneId="/Game1">
         <Game1
           counter={counter}
           setCounter={setCounter}
           scenename={"Scene2"}
           hintPlacement={hintPlacement}
           sethintPlacement={sethintPlacement}
+          G1ImgID={G1ImgID}
+          setG1ImgID={setG1ImgID}
         />
       </Router>
       <Router sceneId="/Game1_Helper">
@@ -233,6 +237,71 @@ function App() {
           scenename={"Scene2"}
           hintPlacement={hintPlacement}
           sethintPlacement={sethintPlacement}
+          G1ImgID={G1ImgID}
+          setG1ImgID={setG1ImgID}
+        />
+      </Router> */}
+      <Router sceneId="/Game1_1">
+        <Game1
+          nextScene={"/Game1_2"}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
+          G1ImgID={6}
+          G1SoundId={0}
+        />
+      </Router>
+      <Router sceneId="/Game1_2">
+        <Game1
+          nextScene={"/Game1_3"}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
+          G1ImgID={7}
+          G1SoundId={1}
+        />
+      </Router>
+      <Router sceneId="/Game1_3">
+        <Game1
+          nextScene={"/Game1_4"}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
+          G1ImgID={8}
+          G1SoundId={2}
+        />
+      </Router>
+      <Router sceneId="/Game1_4">
+        <Game1
+          nextScene={"/Game1_5"}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
+          G1ImgID={9}
+          G1SoundId={3}
+        />
+      </Router>
+      <Router sceneId="/Game1_5">
+        <Game1
+          nextScene={"/Game1_6"}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
+          G1ImgID={10}
+          G1SoundId={4}
+        />
+      </Router>
+      <Router sceneId="/Game1_6">
+        <Game1
+          nextScene={"/Game1_7"}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
+          G1ImgID={11}
+          G1SoundId={5}
+        />
+      </Router>
+      <Router sceneId="/Game1_7">
+        <Game1
+          nextScene={"/Scene5"}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
+          G1ImgID={12}
+          G1SoundId={6}
         />
       </Router>
     </GameContainer>

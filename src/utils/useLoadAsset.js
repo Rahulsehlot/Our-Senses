@@ -13,7 +13,7 @@ export default function useLoadAsset(Map) {
   const { Sound, setSound } = useContext(SoundContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
-
+  console.log(SceneId);
   useEffect(() => {
     const newSceneData = {
       Bg: "",

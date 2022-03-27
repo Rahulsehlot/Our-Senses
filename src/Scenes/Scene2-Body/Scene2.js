@@ -2,14 +2,15 @@ import { useContext, useRef, useEffect } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
-import PlayAudio from "../../utils/playAudio";
-import IntroMap from "./Scene2Map";
 import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
+import { BGContext } from "../../contexts/Background";
+import IntroMap from "../Scene3Organs/Scene3Map";
 
 export default function Scene2({ scenename }) {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+  const { Loading } = useLoadAsset(IntroMap);
+  const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
@@ -21,6 +22,7 @@ export default function Scene2({ scenename }) {
   };
 
   useEffect(() => {
+    setBg(Assets?.Scene2?.Bg);
     if (Assets?.Scene2 && !Loading) {
       Assets?.Scene2?.sounds[0]?.play();
       Assets?.Scene2?.sounds[0].on("end", () => {

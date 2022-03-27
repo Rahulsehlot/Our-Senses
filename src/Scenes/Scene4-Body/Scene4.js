@@ -3,13 +3,17 @@ import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import PlayAudio from "../../utils/playAudio";
-import IntroMap from "./Scene4Map";
 import lottie from "lottie-web";
 import "../../styles/Scene4.css";
 import Image from "../../utils/elements/Image";
+import { BGContext } from "../../contexts/Background";
+import Game2Map from "../Game1Screen/Game1Map";
 
 export default function Scene4({ scenename }) {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+  // const { Bg, Loading } = useLoadAsset(IntroMap);
+  const { Loading } = useLoadAsset(Game2Map);
+
+  const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
@@ -17,20 +21,20 @@ export default function Scene4({ scenename }) {
   const Ref = useRef(null);
 
   const stop_all_sounds = () => {
-    Assets[scenename]?.sounds?.map((v) => v?.stop());
+    Assets?.Scene4?.sounds?.map((v) => v?.stop());
   };
 
   useEffect(() => {
-    if (Assets?.Scene2 && !Loading) {
-      Assets?.Scene2?.sounds[0]?.play();
-      Assets?.Scene2?.sounds[0].on("end", () => {
+    if (Assets?.Scene4) {
+      Assets?.Scene4?.sounds[0]?.play();
+      Assets?.Scene4?.sounds[0].on("end", () => {
         setSceneId("/Game1");
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, []);
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -38,13 +42,13 @@ export default function Scene4({ scenename }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Scene2?.lottie[0],
+          animationData: Assets?.Scene4?.lottie[0],
         });
       } catch (err) {
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, []);
 
   const btn_style = {
     width: "20%",
@@ -59,7 +63,7 @@ export default function Scene4({ scenename }) {
 
   const forward = () => {
     stop_all_sounds();
-    setSceneId("/Game1");
+    setSceneId("/Game1_1");
   };
 
   return (
@@ -69,7 +73,7 @@ export default function Scene4({ scenename }) {
         <>
           {/* Title */}
           <Image
-            src={Assets?.Scene2?.sprites[0]}
+            src={Assets?.Scene4?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="senses_smell_btn"
@@ -79,7 +83,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[7]}
+            src={Assets?.Scene4?.sprites[7]}
             alt="txt"
             id="fadeup"
             className="senses_smell_txt"
@@ -87,7 +91,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[1]}
+            src={Assets?.Scene4?.sprites[1]}
             alt="txt"
             id="fadeup"
             className="senses_taste_btn"
@@ -97,7 +101,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[9]}
+            src={Assets?.Scene4?.sprites[9]}
             alt="txt"
             id="fadeup"
             className="senses_Taste_txt"
@@ -105,7 +109,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[2]}
+            src={Assets?.Scene4?.sprites[2]}
             alt="txt"
             id="fadeup"
             className="senses_hearing_btn"
@@ -115,7 +119,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[8]}
+            src={Assets?.Scene4?.sprites[8]}
             alt="txt"
             id="fadeup"
             className="senses_hearing_txt"
@@ -123,7 +127,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[3]}
+            src={Assets?.Scene4?.sprites[3]}
             alt="txt"
             id="fadeup"
             className="senses_touch_btn"
@@ -133,7 +137,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[10]}
+            src={Assets?.Scene4?.sprites[10]}
             alt="txt"
             id="fadeup"
             className="senses_touch_txt"
@@ -141,7 +145,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[4]}
+            src={Assets?.Scene4?.sprites[4]}
             alt="txt"
             id="fadeup"
             className="senses_vision_btn"
@@ -151,7 +155,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[6]}
+            src={Assets?.Scene4?.sprites[6]}
             alt="txt"
             id="fadeup"
             className="senses_vision_txt"
@@ -161,7 +165,7 @@ export default function Scene4({ scenename }) {
           <div ref={Ref} className="Scene4_lottie_container"></div>
 
           <Image
-            src={Assets?.Scene2?.sprites[5]}
+            src={Assets?.Scene4?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="next"

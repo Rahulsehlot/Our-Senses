@@ -46,7 +46,6 @@ const IntroMap = {
   lottie: [],
 
   //   eyeobj: [`${eye}Eye.svg`],
-  select: ["Eyes", "Nose", "Tongue", "Ears", "Skin"],
 };
 
 export default IntroMap;

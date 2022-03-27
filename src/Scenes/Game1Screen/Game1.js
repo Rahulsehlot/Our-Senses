@@ -7,26 +7,25 @@ import Game2Map from "./Game1Map";
 import lottie from "lottie-web";
 import "../../styles/Game1.css";
 import Image from "../../utils/elements/Image";
+import { BGContext } from "../../contexts/Background";
 
 export default function Game1({
   counter,
-  setCounter,
-  scenename,
-  countdownSound,
   hintPlacement,
   sethintPlacement,
-  shuffle,
-  setshuffle,
+  G1ImgID,
+  G1SoundId,
+  nextScene,
 }) {
-  const { Bg, Loading } = useLoadAsset(Game2Map);
+  // const { Bg, Loading } = useLoadAsset(Game2Map);
+  const { Bg, setBg } = useContext(BGContext);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
-  const [G1ImgID, setG1ImgID] = useState();
-  const [G1SoundId, setG1SoundId] = useState(0);
+  // const [G1ImgID, setG1ImgID] = useState();
+  // const [G1SoundId, setG1SoundId] = useState(0);
   const [s1, setS1] = useState(0);
-  const [helper, setHelper] = useState(0);
   const [playing, setplaying] = useState(false);
   const [EyeButtonCrct, setEyeButtonCrct] = useState(0);
   const [noseButtonCrct, setnoseButtonCrct] = useState(0);
@@ -43,18 +42,8 @@ export default function Game1({
   const [hand, setHand] = useState(0);
 
   useEffect(() => {
-    const number = Math.floor(Math.random() * (13 - 5 + 1)) + 5;
-    console.log(number);
-    const G1 = number;
-    setHelper(G1);
-    setCounter(G1 + 1);
-
-    if (G1 > 5 && G1 <= 20) {
-      setG1ImgID(counter);
-      setG1SoundId(counter - 5);
-    } else {
-      setSceneId("/Scene5");
-    }
+    console.log(G1ImgID, G1SoundId);
+    console.log(nextScene);
   }, []);
 
   const [hint, setHint] = useState("");
@@ -69,14 +58,14 @@ export default function Game1({
   });
 
   useEffect(() => {
-    if (Assets?.Game2 && !Loading) {
+    if (Assets?.Game2) {
       setGrey(true);
       Assets?.Game2?.sounds[G1SoundId]?.play();
       Assets?.Game2?.sounds[G1SoundId]?.on("end", () => {
         setGrey(false);
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, [Assets, isLoading]);
 
   const [seconds, setSeconds] = useState(0);
 
@@ -98,25 +87,27 @@ export default function Game1({
   }, []);
 
   const playCorrectSound = () => {
-    if (playing === false) {
-      if (Assets?.Game2 && !Loading) {
-        setplaying(true);
-        Assets?.Game2?.sounds[16]?.play();
-        Assets?.Game2?.sounds[16]?.on("end", () => {
-          sethintPlacement(hintPlacement + 1);
-          setSceneId("/Game1_Helper");
-          setplaying(false);
-        });
+    if (G1ImgID > 5 && G1ImgID <= 12) {
+      if (playing === false) {
+        if (Assets?.Game2) {
+          setplaying(true);
+          Assets?.Game2?.sounds[7]?.play();
+          Assets?.Game2?.sounds[7]?.on("end", () => {
+            sethintPlacement(hintPlacement + 1);
+            setplaying(false);
+          });
+        }
       }
+    } else {
+      setSceneId("/Scene5");
     }
   };
-
   const playWrongSound = () => {
     if (playing === false) {
-      if (Assets?.Game2 && !Loading) {
+      if (Assets?.Game2) {
         setplaying(true);
-        Assets?.Game2?.sounds[17]?.play();
-        Assets?.Game2?.sounds[17]?.on("end", () => {
+        Assets?.Game2?.sounds[8]?.play();
+        Assets?.Game2?.sounds[8]?.on("end", () => {
           setplaying(false);
         });
       }
@@ -126,10 +117,10 @@ export default function Game1({
   const replayBtn = () => {
     Assets?.Game2?.sounds[G1SoundId]?.stop();
     if (playing === false) {
-      if (Assets?.Game2 && !Loading) {
+      if (Assets?.Game2) {
         setGrey(true);
         if (playing === false) {
-          if (Assets?.Game2 && !Loading) {
+          if (Assets?.Game2) {
             Assets?.Game2?.sounds[G1SoundId]?.play();
             Assets?.Game2?.sounds[G1SoundId]?.on("end", () => {
               setGrey(false);
@@ -160,6 +151,7 @@ export default function Game1({
         setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
         playCorrectSound();
+        setSceneId(nextScene);
         setnoseButtonCrct(1);
       } else {
         playWrongSound();
@@ -184,12 +176,11 @@ export default function Game1({
         Assets?.Game2?.sounds[18]?.stop();
         setHand(0);
         setClicked(1);
-
         setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
-
         settongueButtonCrct(1);
         playCorrectSound();
+        setSceneId(nextScene);
       } else {
         playWrongSound();
         settongueButtonWrng(1);
@@ -220,6 +211,7 @@ export default function Game1({
 
         playCorrectSound();
         setearsButtonCrct(1);
+        setSceneId(nextScene);
       } else {
         playWrongSound();
         setearsButtonWrng(1);
@@ -248,6 +240,8 @@ export default function Game1({
         Assets?.Game2?.sounds[G1SoundId]?.stop();
 
         playCorrectSound();
+        setSceneId(nextScene);
+
         setskinButtonCrct(1);
       } else {
         playWrongSound();
@@ -268,7 +262,6 @@ export default function Game1({
         .replace("internal/images/Organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-
       if (verify === "Eye") {
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
@@ -276,6 +269,7 @@ export default function Game1({
         setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
         playCorrectSound();
+        setSceneId(nextScene);
         setEyeButtonCrct(1);
       } else {
         playWrongSound();

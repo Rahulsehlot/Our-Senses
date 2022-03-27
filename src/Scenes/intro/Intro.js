@@ -3,18 +3,22 @@ import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import PlayAudio from "../../utils/playAudio";
-import IntroMap from "./AssetMap";
 import "../../styles/intro.css";
 import Image from "../../utils/elements/Image";
+import { BGContext } from "../../contexts/Background";
+import IntroMap from "../Scene2-Body/Scene2Map";
 
 export default function Intro() {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+  const { Loading } = useLoadAsset(IntroMap);
+  const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
   const [playing, setplaying] = useState(false);
-
   const Ref = useRef(null);
+  useEffect(() => {
+    setBg(intro?.Bg);
+  }, []);
 
   return (
     <Scenes
