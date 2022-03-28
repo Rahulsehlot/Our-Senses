@@ -61,7 +61,7 @@
   width: 10%;
   /* background-color: aqua; */
   border-radius: 50%;
-  z-index: 3;
+  z-index: 99;
 }
 
 .Scene6_lottie_container {

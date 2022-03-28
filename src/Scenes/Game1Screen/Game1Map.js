@@ -2,7 +2,7 @@ const imgUrl = "internal/images/";
 const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
-const Game2Map = {
+const Game1Map1 = {
   id: "Game2",
 
   sprites: [
@@ -44,8 +44,6 @@ const Game2Map = {
   select: ["Nose", "Tongue", "Ear", "Touch", "Eye"],
 
   hint: ["Eyes", "Nose", "Ears", "Tongue", "Skin"],
-
-  counter: 6,
 };
 
-export default Game2Map;
+export default Game1Map1;

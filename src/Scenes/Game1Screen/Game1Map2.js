@@ -2,7 +2,7 @@ const imgUrl = "internal/images/";
 const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
-const Game2Map = {
+const Game1Map2 = {
   id: "Game2",
 
   sprites: [
@@ -27,7 +27,6 @@ const Game2Map = {
   ],
 
   sounds: [
-    `${soundUrl}scene2_sound.mp3`,
     `${soundUrl}13.mp3`,
     `${soundUrl}14.mp3`,
     `${soundUrl}15.mp3`,
@@ -49,4 +48,4 @@ const Game2Map = {
   counter: 6,
 };
 
-export default Game2Map;
+export default Game1Map2;

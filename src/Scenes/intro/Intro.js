@@ -8,7 +8,12 @@ import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
 import IntroMap from "../Scene2-Body/Scene2Map";
 
-export default function Intro() {
+export default function Intro({
+  setshuffle_g1,
+  shuffle_g1,
+  shuffle_g2,
+  setshuffle_g2,
+}) {
   const { Loading } = useLoadAsset(IntroMap);
   const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -19,6 +24,19 @@ export default function Intro() {
   useEffect(() => {
     setBg(intro?.Bg);
   }, []);
+
+  console.log(IntroMap);
+  useEffect(() => {
+    const shuffle_1 = Math.floor(1 + Math.random() * (2 - 1));
+    const shuffle_2 = 1 + Math.floor(Math.random() * (4 - 1));
+    console.log("::**" + shuffle_1);
+    console.log("::***" + shuffle_2);
+    const s1 = IntroMap?.shuffle1[shuffle_1];
+    setshuffle_g1(s1);
+    setshuffle_g2(IntroMap?.shuffle2[shuffle_2]);
+    console.log(shuffle_g1);
+    console.log(shuffle_g2);
+  }, [shuffle_g1, shuffle_g2]);
 
   return (
     <Scenes

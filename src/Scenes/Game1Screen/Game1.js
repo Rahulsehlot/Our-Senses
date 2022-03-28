@@ -8,16 +8,23 @@ import lottie from "lottie-web";
 import "../../styles/Game1.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
+import IntroMap from "../Scene5-Body/Scene5AssetMap";
+import Star from "../progressBar";
+import { counter } from "../Helper_function";
 
 export default function Game1({
-  counter,
   hintPlacement,
   sethintPlacement,
   G1ImgID,
   G1SoundId,
   nextScene,
+  count,
+  setCount,
+  nextload,
 }) {
   // const { Bg, Loading } = useLoadAsset(Game2Map);
+  const { Loading } = useLoadAsset(IntroMap);
+
   const { Bg, setBg } = useContext(BGContext);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -65,7 +72,7 @@ export default function Game1({
         setGrey(false);
       });
     }
-  }, [Assets, isLoading]);
+  }, []);
 
   const [seconds, setSeconds] = useState(0);
 
@@ -87,6 +94,7 @@ export default function Game1({
   }, []);
 
   const playCorrectSound = () => {
+    counter(count, setCount);
     if (G1ImgID > 5 && G1ImgID <= 12) {
       if (playing === false) {
         if (Assets?.Game2) {
@@ -135,7 +143,7 @@ export default function Game1({
 
   const Nose = () => {
     if (playing === false) {
-      const ans = Game2Map.sprites[G1ImgID];
+      const ans = nextload?.sprites[G1ImgID];
       const slice = ans
         .replace("internal/images/Organs_images/", "")
         .replace("_Nose.svg", "");
@@ -148,10 +156,12 @@ export default function Game1({
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
         setHand(0);
-        setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
         playCorrectSound();
-        setSceneId(nextScene);
+
+        const timeout = setTimeout(() => {
+          setSceneId(nextScene);
+        }, 1500);
         setnoseButtonCrct(1);
       } else {
         playWrongSound();
@@ -164,7 +174,7 @@ export default function Game1({
 
   const Tongue = () => {
     if (playing === false) {
-      const ans = Game2Map.sprites[G1ImgID];
+      const ans = nextload?.sprites[G1ImgID];
       const slice = ans
         .replace("internal/images/Organs_images/", "")
         .replace("_Tongue.svg", "");
@@ -176,11 +186,12 @@ export default function Game1({
         Assets?.Game2?.sounds[18]?.stop();
         setHand(0);
         setClicked(1);
-        setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
         settongueButtonCrct(1);
         playCorrectSound();
-        setSceneId(nextScene);
+        const timeout = setTimeout(() => {
+          setSceneId(nextScene);
+        }, 1500);
       } else {
         playWrongSound();
         settongueButtonWrng(1);
@@ -192,7 +203,7 @@ export default function Game1({
 
   const Ear = () => {
     if (playing === false) {
-      const ans = Game2Map.sprites[G1ImgID];
+      const ans = nextload?.sprites[G1ImgID];
       const slice = ans
         .replace("internal/images/Organs_images/", "")
         .replace("_Ear.svg", "");
@@ -205,13 +216,13 @@ export default function Game1({
         setClicked(1);
 
         setHand(0);
-
-        setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
 
         playCorrectSound();
         setearsButtonCrct(1);
-        setSceneId(nextScene);
+        const timeout = setTimeout(() => {
+          setSceneId(nextScene);
+        }, 1500);
       } else {
         playWrongSound();
         setearsButtonWrng(1);
@@ -223,7 +234,7 @@ export default function Game1({
 
   const Skin = () => {
     if (playing === false) {
-      const ans = Game2Map.sprites[G1ImgID];
+      const ans = nextload?.sprites[G1ImgID];
       const slice = ans
         .replace("internal/images/Organs_images/", "")
         .replace("_Skin.svg", "");
@@ -236,11 +247,12 @@ export default function Game1({
         setClicked(1);
 
         setHand(0);
-        setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
 
         playCorrectSound();
-        setSceneId(nextScene);
+        const timeout = setTimeout(() => {
+          setSceneId(nextScene);
+        }, 1500);
 
         setskinButtonCrct(1);
       } else {
@@ -251,10 +263,10 @@ export default function Game1({
       }
     }
   };
-
   const Eye = () => {
     if (playing === false) {
-      const ans = Game2Map.sprites[G1ImgID];
+      console.log(nextload);
+      const ans = nextload?.sprites[G1ImgID];
       const slice = ans
         .replace("internal/images/Organs_images/", "")
         .replace("_Eye.svg", "");
@@ -266,10 +278,11 @@ export default function Game1({
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
         setHand(0);
-        setS1(counter + 1);
         Assets?.Game2?.sounds[G1SoundId]?.stop();
         playCorrectSound();
-        setSceneId(nextScene);
+        const timeout = setTimeout(() => {
+          setSceneId(nextScene);
+        }, 1500);
         setEyeButtonCrct(1);
       } else {
         playWrongSound();
@@ -328,7 +341,7 @@ export default function Game1({
             style={{ cursor: "pointer" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[23]}
+            src={Assets?.Game2?.sprites[15]}
             alt="txt"
             id="fadeup"
             className="Nose_Button"
@@ -338,7 +351,7 @@ export default function Game1({
           />
 
           <Image
-            src={Assets?.Game2?.sprites[24]}
+            src={Assets?.Game2?.sprites[16]}
             alt="txt"
             id="fadeup"
             className="Nose_Button"
@@ -359,14 +372,14 @@ export default function Game1({
             style={{ cursor: "pointer" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[23]}
+            src={Assets?.Game2?.sprites[15]}
             alt="txt"
             id="fadeup"
             className="Taste_Button"
             style={{ display: tongueButtonCrct === 1 ? "block" : "none" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[24]}
+            src={Assets?.Game2?.sprites[16]}
             alt="txt"
             id="fadeup"
             className="Taste_Button"
@@ -387,14 +400,14 @@ export default function Game1({
             style={{ cursor: "pointer" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[23]}
+            src={Assets?.Game2?.sprites[15]}
             alt="txt"
             id="fadeup"
             className="Hearing_Button"
             style={{ display: earsButtonCrct === 1 ? "block" : "none" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[24]}
+            src={Assets?.Game2?.sprites[16]}
             alt="txt"
             id="fadeup"
             className="Hearing_Button"
@@ -415,14 +428,14 @@ export default function Game1({
             style={{ cursor: "pointer" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[23]}
+            src={Assets?.Game2?.sprites[15]}
             alt="txt"
             id="fadeup"
             className="Touch_Button"
             style={{ display: skinButtonCrct === 1 ? "block" : "none" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[24]}
+            src={Assets?.Game2?.sprites[16]}
             alt="txt"
             id="fadeup"
             className="Touch_Button"
@@ -444,14 +457,14 @@ export default function Game1({
           />
 
           <Image
-            src={Assets?.Game2?.sprites[23]}
+            src={Assets?.Game2?.sprites[15]}
             alt="txt"
             id="fadeup"
             className="Vision_Button"
             style={{ display: EyeButtonCrct === 1 ? "block" : "none" }}
           />
           <Image
-            src={Assets?.Game2?.sprites[24]}
+            src={Assets?.Game2?.sprites[16]}
             alt="txt"
             id="fadeup"
             className="Vision_Button"
@@ -476,7 +489,7 @@ export default function Game1({
             }}
           >
             <Image
-              src={Assets?.Game2?.sprites[21]}
+              src={Assets?.Game2?.sprites[13]}
               alt="txt"
               id="fadeup"
               // className={
@@ -491,12 +504,13 @@ export default function Game1({
           </div>
           <div className={"Hand_icon_" + hint}>
             <Image
-              src={Assets?.Game2?.sprites[25]}
+              src={Assets?.Game2?.sprites[17]}
               alt="txt"
               id="fadeup"
               style={{ display: hand === 1 ? "block" : "none" }}
             />
           </div>
+          <Star num={count} />
         </>
       }
     />

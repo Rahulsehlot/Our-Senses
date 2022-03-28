@@ -7,16 +7,33 @@ import lottie from "lottie-web";
 import "../../styles/Scene4.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
-import Game2Map from "../Game1Screen/Game1Map";
+import Game1Map1 from "../Game1Screen/Game1Map";
+import Game1Map2 from "../Game1Screen/Game1Map2";
 
-export default function Scene4({ scenename }) {
+function get_tracer_obj(type) {
+  switch (type) {
+    case "lion":
+      return Game1Map1;
+      break;
+    case "dog":
+      return Game1Map2;
+      break;
+    default:
+      return "";
+  }
+}
+
+export default function Scene4({ nextload }) {
+  console.log(nextload);
   // const { Bg, Loading } = useLoadAsset(IntroMap);
-  const { Loading } = useLoadAsset(Game2Map);
+  const { Loading } = useLoadAsset(nextload);
+  console.log(nextload);
 
   const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
+  console.log(Assets);
 
   const Ref = useRef(null);
 
@@ -28,7 +45,7 @@ export default function Scene4({ scenename }) {
     if (Assets?.Scene4) {
       Assets?.Scene4?.sounds[0]?.play();
       Assets?.Scene4?.sounds[0].on("end", () => {
-        setSceneId("/Game1");
+        setSceneId("/Game1_1");
       });
     }
   }, []);

@@ -14,22 +14,24 @@ import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import useLoadAsset from "./utils/useLoadAsset";
 import IntroMap from "./Scenes/intro/AssetMap";
+import Game1Map1 from "./Scenes/Game1Screen/Game1Map";
+import Game1Map2 from "./Scenes/Game1Screen/Game1Map2";
 
 function App() {
   const { Loading } = useLoadAsset(IntroMap);
-
   const [Load, setLoad] = useState(true);
   const [next, setNext] = useState(0);
   const [counter, setCounter] = useState(6);
   const [G2Ans, setG2Ans] = useState(5);
-  const [G2Wrng, setG2Wrng] = useState(30);
+  const [G2Wrng, setG2Wrng] = useState(12);
   const [mute, setmute] = useState(false);
   const [BG_sound, setBG_sound] = useState(null);
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
   const [hintPlacement, sethintPlacement] = useState(0);
-  // const [G1ImgID, setG1ImgID] = useState(6);
-  // const [G1SoundId, setG1SoundId] = useState(0);
+  const [count, setCount] = useState(0);
+  const [shuffle_g1, setshuffle_g1] = useState("");
+  const [shuffle_g2, setshuffle_g2] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -85,7 +87,12 @@ function App() {
         />
       )}{" "}
       <Router sceneId="/">
-        <Intro />
+        <Intro
+          shuffle_g1={shuffle_g1}
+          setshuffle_g1={setshuffle_g1}
+          shuffle_g2={shuffle_g2}
+          setshuffle_g2={setshuffle_g2}
+        />
       </Router>
       <Router sceneId="/Scene2">
         <Scene2 scenename={"Scene2"} />
@@ -101,6 +108,8 @@ function App() {
           text_Id={19}
           scenename={"Scene3"}
           sceneid={"/Eyes_Scene3"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
       <Router sceneId="/Nose_Scene3">
@@ -114,6 +123,8 @@ function App() {
           position={"Nose_position"}
           scenename={"Scene3"}
           sceneid={"/Nose_Scene3"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
       <Router sceneId="/Tongue_Scene3">
@@ -127,6 +138,8 @@ function App() {
           position={"Tongue_position"}
           scenename={"Scene3"}
           sceneid={"/Tongue_Scene3"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
       <Router sceneId="/Ears_Scene3">
@@ -140,6 +153,8 @@ function App() {
           position={"Ears_position"}
           scenename={"Scene3"}
           sceneid={"/Ears_Scene3"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
       <Router sceneId="/Skin_Scene3">
@@ -153,13 +168,19 @@ function App() {
           position={"Skin_position"}
           scenename={"Scene3"}
           sceneid={"/Skin_Scene3"}
+          count={count}
+          setCount={setCount}
         />
       </Router>
       <Router sceneId="/Scene4">
-        <Scene4 />
+        <Scene4 nextload={shuffle_g1} />
       </Router>
       <Router sceneId="/Scene5">
-        <Scene5 scenename={"Scene2"} />
+        <Scene5
+          scenename={"Scene2"}
+          setCount={setCount}
+          nextload={shuffle_g2}
+        />
       </Router>
       <Router sceneId="/Scene6">
         <Scene6
@@ -167,6 +188,7 @@ function App() {
           setG2Ans={setG2Ans}
           setNext={setNext}
           setG2Wrng={setG2Wrng}
+          setCount={setCount}
         />
       </Router>
       <Router sceneId="/Eye_Game2">
@@ -177,6 +199,9 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Eye"}
           flowCount={0}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g2}
         />
       </Router>
       <Router sceneId="/Nose_Game2">
@@ -187,6 +212,9 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Nose"}
           flowCount={1}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g2}
         />
       </Router>
       <Router sceneId="/Ear_Game2">
@@ -197,6 +225,9 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Ear"}
           flowCount={2}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g2}
         />
       </Router>
       <Router sceneId="/Tongue_Game2">
@@ -207,6 +238,9 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Tongue"}
           flowCount={3}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g2}
         />
       </Router>
       <Router sceneId="/Skin_Game2">
@@ -217,6 +251,9 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Skin"}
           flowCount={4}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g2}
         />
       </Router>
       {/* <Router sceneId="/Game1">
@@ -248,6 +285,9 @@ function App() {
           sethintPlacement={sethintPlacement}
           G1ImgID={6}
           G1SoundId={0}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g1}
         />
       </Router>
       <Router sceneId="/Game1_2">
@@ -257,6 +297,9 @@ function App() {
           sethintPlacement={sethintPlacement}
           G1ImgID={7}
           G1SoundId={1}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g1}
         />
       </Router>
       <Router sceneId="/Game1_3">
@@ -266,6 +309,9 @@ function App() {
           sethintPlacement={sethintPlacement}
           G1ImgID={8}
           G1SoundId={2}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g1}
         />
       </Router>
       <Router sceneId="/Game1_4">
@@ -275,6 +321,9 @@ function App() {
           sethintPlacement={sethintPlacement}
           G1ImgID={9}
           G1SoundId={3}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g1}
         />
       </Router>
       <Router sceneId="/Game1_5">
@@ -284,6 +333,9 @@ function App() {
           sethintPlacement={sethintPlacement}
           G1ImgID={10}
           G1SoundId={4}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g1}
         />
       </Router>
       <Router sceneId="/Game1_6">
@@ -293,6 +345,9 @@ function App() {
           sethintPlacement={sethintPlacement}
           G1ImgID={11}
           G1SoundId={5}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g1}
         />
       </Router>
       <Router sceneId="/Game1_7">
@@ -302,6 +357,9 @@ function App() {
           sethintPlacement={sethintPlacement}
           G1ImgID={12}
           G1SoundId={6}
+          count={count}
+          setCount={setCount}
+          nextload={shuffle_g1}
         />
       </Router>
     </GameContainer>

@@ -37,8 +37,8 @@ export default function Scene3Organs({
 
     setName(IntroMap.select[next]);
     if (Assets?.Scene3) {
-      Assets?.Scene3?.sounds[soundId].play();
-      Assets?.Scene3?.sounds[soundId].on("end", () => {
+      Assets?.Scene3?.sounds[soundId]?.play();
+      Assets?.Scene3?.sounds[soundId]?.on("end", () => {
         if (next < 4) {
           const nxtitem = next + 1;
           const item = IntroMap.select[nxtitem];

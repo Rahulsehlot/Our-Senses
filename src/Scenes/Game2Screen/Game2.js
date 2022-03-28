@@ -3,11 +3,13 @@ import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import PlayAudio from "../../utils/playAudio";
-import IntroMap from "./Game2AssetMap";
 import lottie from "lottie-web";
 import "../../styles/Game2.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
+import Game2Map1 from "./Game2AssetMap";
+import Star from "../progressBar";
+import { counter } from "../Helper_function";
 
 export default function Game2({
   flowCount,
@@ -16,10 +18,10 @@ export default function Game2({
   G2Wrng,
   setG2Wrng,
   G2answer,
+  count,
+  setCount,
 }) {
-  // const { Bg, Loading } = useLoadAsset(IntroMap);
-  const { Bg } = useContext(BGContext);
-  const [Loading, setLoading] = useState(true);
+  const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const [G2QiD, setG2QiD] = useState();
@@ -40,12 +42,13 @@ export default function Game2({
   };
 
   useEffect(() => {
+    setBg(Assets?.Scene22?.Bg);
     setG2Sound(flowCount);
   }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setLoading(false);
+      // setLoading(false);
     }, 1000);
   }, []);
 
@@ -66,7 +69,8 @@ export default function Game2({
   }, []);
 
   const playCorrectSound = () => {
-    if (Assets?.Scene22 && !Loading) {
+    counter(count, setCount);
+    if (Assets?.Scene22) {
       setplaying(true);
       Assets?.Scene22?.sounds[5]?.play();
       Assets?.Scene22?.sounds[5]?.on("end", () => {
@@ -76,7 +80,7 @@ export default function Game2({
   };
 
   const playWrongSound = () => {
-    if (Assets?.Scene22 && !Loading) {
+    if (Assets?.Scene22) {
       setplaying(true);
       Assets?.Scene22?.sounds[6]?.play();
       Assets?.Scene22?.sounds[6]?.on("end", () => {
@@ -85,15 +89,17 @@ export default function Game2({
     }
   };
 
+  console.log(Game2Map1?.sprites);
+
   const Option1 = () => {
-    if (answer < 29) {
+    if (answer < 11) {
       if (playing === false) {
         Assets?.Scene22?.sounds[flowCount]?.stop();
         playCorrectSound();
         if (playing === false) {
           setoption1Verify(1);
           // const soundEnd = () => {
-          const item = IntroMap.sprites[answer + 1].split("_");
+          const item = Game2Map1?.sprites[answer + 1]?.split("_");
           const item1 = item[2].replace(".svg", "");
           const timeout = setTimeout(() => {
             setSceneId("/" + item1 + "_Game2");
@@ -126,7 +132,7 @@ export default function Game2({
   const [replayId, setreplayId] = useState(null);
 
   useEffect(() => {
-    if (Assets?.Scene22 && !Loading) {
+    if (Assets?.Scene22) {
       setGrey(true);
       setreplayId(Assets?.Scene22?.sounds[flowCount]);
       Assets?.Scene22?.sounds[flowCount]?.play();
@@ -134,7 +140,7 @@ export default function Game2({
         setGrey(false);
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, [Assets, isLoading]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -145,7 +151,7 @@ export default function Game2({
   const replayBtn = () => {
     Assets?.Scene22?.sounds[flowCount]?.stop();
 
-    if (Assets?.Scene22 && !Loading) {
+    if (Assets?.Scene22) {
       setGrey(true);
       replayId.play();
       replayId?.on("end", () => {
@@ -168,7 +174,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.Scene22?.sprites[56]}
+            src={Assets?.Scene22?.sprites[20]}
             alt="txt"
             id="fadeup"
             className="Option1BG"
@@ -178,7 +184,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.Scene22?.sprites[56]}
+            src={Assets?.Scene22?.sprites[20]}
             alt="txt"
             id="fadeup"
             className="Option2BG"
@@ -207,7 +213,7 @@ export default function Game2({
           </div>
 
           <Image
-            src={Assets?.Scene22?.sprites[57]}
+            src={Assets?.Scene22?.sprites[21]}
             alt="txt"
             id="fadeup"
             className="Option1_Button"
@@ -235,7 +241,7 @@ export default function Game2({
             />
           </div>
           <Image
-            src={Assets?.Scene22?.sprites[58]}
+            src={Assets?.Scene22?.sprites[22]}
             alt="txt"
             id="fadeup"
             className="Option2_Button"
@@ -256,7 +262,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.Scene22?.sprites[55]}
+              src={Assets?.Scene22?.sprites[23]}
               alt="txt"
               id="fadeup"
               onClick={replayBtn}
@@ -265,6 +271,7 @@ export default function Game2({
               }}
             />
           </div>
+          <Star num={count} />
         </>
       }
     />
