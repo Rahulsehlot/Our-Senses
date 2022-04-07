@@ -8,51 +8,46 @@
 }
 
 .senses_txt_img {
-  width: 45%;
+  left: 28%;
   position: fixed;
-  top: 10%;
-  left: 26%;
+  top: 7%;
+  width: 39%;
 }
 
 .senses_smell_img {
-  width: 20%;
   position: fixed;
-  top: 50%;
   right: 5%;
-}
+  top: 51%;
+  width: 16%;}
 .senses_taste_img {
-  width: 20%;
+  left: 5.5%;
   position: fixed;
-  top: 5%;
-  left: 5%;
-}
+  top: 3%;
+  width: 16%;}
 .senses_hearing_img {
-  width: 20%;
   position: fixed;
-  top: 5%;
-  right: 5%;
-}
+  right: 6%;
+  top: 2%;
+  width: 16%;}
 
 .senses_touch_img {
-  width: 20%;
+  left: 5%;
   position: fixed;
   top: 50%;
-  left: 5%;
-}
+  width: 16%;}
 
 .senses_vision_img {
-  width: 20%;
+  left: 41%;
   position: fixed;
   top: 50%;
-  left: 40%;
-}
+  width: 16%;}
 
 .play_btn {
-  position: fixed;
-  bottom: 36%;
-  left: 58%;
-  width: 10%;
+  bottom: 34%;
   cursor: pointer;
+  left: 59%;
+  position: fixed;
+  width: 10%;
 }
 
 .play_btn:active {
@@ -61,6 +56,7 @@
 }
 
 .mute_btn {
+  cursor: pointer;
   width: 5%;
   position: fixed;
   position: fixed;
@@ -75,54 +71,49 @@
 }
 
 .senses_smell {
-  width: 14%;
-  position: fixed;
-  top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  right: 7%;
-  color: #fff;
-}
+color: #fff;
+    font-size: 3vw!important;
+    font-weight: 700;
+    position: fixed;
+    width: 14%;
+    right: 7%;
+     top: 87%;}
 
 .senses_taste {
-  width: 14%;
-  position: fixed;
-  top: 39.5%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 7.5%;
   color: #fff;
+  font-size: 3vw!important;
+  font-weight: 700;
+  position: fixed;
+  width: 14%;
+
+  left: 6.5%;
+  top: 39.5%;
 }
 
 .senses_hearing {
-  width: 14%;
-  position: fixed;
-  top: 39.5%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  right: 8%;
   color: #fff;
-}
+  position: fixed;
+  right: 5.5%;
+  top: 39.5%;
+  width: 17%;}
 
 .senses_touch {
-  width: 14%;
+  color: #fff;
+  font-size: 3vw!important;
+  font-weight: 700;
   position: fixed;
   top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 7.5%;
-  color: #fff;
-}
+  left: 5.5%;
+  width: 14%;}
 
 .senses_vision {
-  width: 14%;
+  color: #fff;
+  font-size: 3vw!important;
+  font-weight: 700;
   position: fixed;
   top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 43%;
-  color: #fff;
-}
+  left: 40%;
+  width: 18%;}
 
 #stars {
   width: 13%;
@@ -142,34 +133,28 @@
 }
 
 #star_wrap0 {
-  border-radius: 25pt;
-  display: flex;
-  width: 22.6%;
-  height: 7.7%;
-  position: fixed;
-  bottom: 88%;
-  left: 74%;
-  display: flex;
   grid-gap: 2px;
   align-items: center;
+  border-radius: 25pt;
+  bottom: 89%;
+  display: flex;
+  height: 7.7%;
+  position: fixed;
+  width: 22.6%;
   justify-content: center;
-}
+  left: 74%;}
 
 #star_wrap1 {
+  grid-gap: 2px;
+  align-items: center;
   border-radius: 25pt;
+  bottom: 89%;
   display: flex;
-  width: 22.6%;
   height: 7.7%;
   position: fixed;
-  bottom: 88%;
-  left: 74.5%;
-  display: flex;
+  width: 22.6%;
   flex-direction: row;
-  align-items: center;
-  grid-gap: 2px;
-  /* justify-content: center; */
-  /* border: 2px solid white; */
-}
+  left: 74.6%;}
 
 .star_off {
   width: 13%;

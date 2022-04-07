@@ -9,24 +9,39 @@ const Game2Map3 = {
 
   sprites: [
     `${imgUrl}Organs/Touch.svg`,
-    `${imgUrl}Organs/Eye.svg`,
     `${imgUrl}Organs/Nose.svg`,
     `${imgUrl}Organs/Ear.svg`,
+    `${imgUrl}Organs/Eye.svg`,
     `${imgUrl}Organs/Tongue.svg`,
+
     `${imgUrl}Game2_Images/Skin/Set-of-clothes_Skin.svg`,
-    `${imgUrl}Game2_Images/Eye/Moon-stars_Eye.svg`,
-    `${imgUrl}Game2_Images/Nose/Pizza_Nose.svg`,
+
+    `${imgUrl}Game2_Images/Nose/Incense-stick_Nose.svg`,
+
     `${imgUrl}Game2_Images/Ear/Speakers_Ear.svg`,
+
+    `${imgUrl}Game2_Images/Eye/Camp-fire_Eye.svg`,
+
     `${imgUrl}Game2_Images/Tongue/Mango_Tongue.svg`,
+
     `${imgUrl}Game2_Images/Skin/Cotton_Skin.svg`,
-    `${imgUrl}Game2_Images/Eye/Camp-fire_Eye.svg`,
+
+    `${imgUrl}Game2_Images/Nose/Pizza_Nose.svg`,
+
     `${imgUrl}Game2_Images/Eye/Tiger_Eye.svg`,
-    `${imgUrl}Game2_Images/Eye/Set-of-books_Eye.svg`,
-    `${imgUrl}Game2_Images/Eye/Set-of-books_Eye.svg`,
+
+    `${imgUrl}Game2_Images/Skin/Football_Skin.svg`,
+
     `${imgUrl}Game2_Images/Eye/Ice-mountain_Eye.svg`,
-    `${imgUrl}Game2_Images/Skin/Stones_Skin.svg`,
-    `${imgUrl}Game2_Images/Eye/Camp-fire_Eye.svg`,
+
     `${imgUrl}Game2_Images/Skin/Pencile_Skin.svg`,
+
+    `${imgUrl}Game2_Images/Skin/Stones_Skin.svg`,
+
+    `${imgUrl}Game2_Images/Eye/Camp-fire_Eye.svg`,
+
+    `${imgUrl}Game2_Images/Eye/Set-of-books_Eye.svg`,
+
     `${imgUrl}Audio_replay_button.svg`,
     `${imgUrl}Layout_Box_Icon.svg`,
     `${imgUrl}Layout_Box_Icon_Green_Highlight.svg`,

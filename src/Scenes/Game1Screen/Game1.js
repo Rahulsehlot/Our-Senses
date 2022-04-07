@@ -49,22 +49,6 @@ export default function Game1({
   const [hand, setHand] = useState(0);
 
   useEffect(() => {
-    console.log(G1ImgID, G1SoundId);
-    console.log(nextScene);
-  }, []);
-
-  const [hint, setHint] = useState("");
-  useEffect(() => {
-    const hint1 = hintPlacement;
-    if (hint1 < 5) {
-      const temp = Game2Map.hint[hint1];
-      setHint(temp);
-    } else {
-      sethintPlacement(0);
-    }
-  });
-
-  useEffect(() => {
     if (Assets?.Game2) {
       setGrey(true);
       Assets?.Game2?.sounds[G1SoundId]?.play();
@@ -78,12 +62,12 @@ export default function Game1({
 
   useEffect(() => {
     if (clicked === 1) {
-      Assets?.Game2?.sounds[18]?.stop();
+      Assets?.Game2?.sounds[G1SoundId]?.stop();
     }
 
     if (seconds > 15) {
       setSeconds(0);
-      Assets?.Game2?.sounds[18]?.play();
+      Assets?.Game2?.sounds[G1SoundId]?.play();
       setHand(1);
     }
   });
@@ -151,7 +135,6 @@ export default function Game1({
         .replace("internal/images/Organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-      setHint(verify);
       if (verify === "Nose") {
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
@@ -265,7 +248,6 @@ export default function Game1({
   };
   const Eye = () => {
     if (playing === false) {
-      console.log(nextload);
       const ans = nextload?.sprites[G1ImgID];
       const slice = ans
         .replace("internal/images/Organs_images/", "")
@@ -500,14 +482,6 @@ export default function Game1({
               onClick={replayBtn}
               style={{ cursor: playing === false ? "pointer" : "" }}
               // style={{ cursor: "pointer" }}
-            />
-          </div>
-          <div className={"Hand_icon_" + hint}>
-            <Image
-              src={Assets?.Game2?.sprites[17]}
-              alt="txt"
-              id="fadeup"
-              style={{ display: hand === 1 ? "block" : "none" }}
             />
           </div>
           <Star num={count} />

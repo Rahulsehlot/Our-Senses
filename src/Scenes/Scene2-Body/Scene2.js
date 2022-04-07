@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
@@ -14,6 +14,11 @@ export default function Scene2({ scenename }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
+  const [highlighteye, sethighlighteye] = useState(0);
+  const [highlightnose, sethighlightnose] = useState(0);
+  const [highlightear, sethighlightear] = useState(0);
+  const [highlighttongue, sethighlighttongue] = useState(0);
+  const [highlightskin, sethighlightskin] = useState(0);
 
   const Ref = useRef(null);
 
@@ -30,6 +35,45 @@ export default function Scene2({ scenename }) {
       });
     }
   }, [Assets, Loading, isLoading]);
+
+  useEffect(() => {
+    if (highlighteye === 0) {
+      const timeout = setTimeout(() => {
+        sethighlighteye(1);
+      }, 4800);
+      const timeout1 = setTimeout(() => {
+        sethighlightnose(1);
+      }, 5500);
+      const timeout2 = setTimeout(() => {
+        sethighlightear(1);
+      }, 6500);
+      const timeout4 = setTimeout(() => {
+        sethighlightskin(1);
+      }, 7500);
+      const timeout3 = setTimeout(() => {
+        sethighlighttongue(1);
+      }, 8200);
+    }
+    const timeout5 = setTimeout(() => {
+      sethighlighteye(0);
+    }, 5500);
+
+    const timeout6 = setTimeout(() => {
+      sethighlightnose(0);
+    }, 6500);
+    const timeout7 = setTimeout(() => {
+      sethighlightear(0);
+    }, 7500);
+    const timeout8 = setTimeout(() => {
+      sethighlightskin(0);
+    }, 8200);
+  }, [
+    highlighteye,
+    highlightear,
+    highlightskin,
+    highlightnose,
+    highlighttongue,
+  ]);
 
   useEffect(() => {
     if (Assets && Ref.current && !Loading) {
@@ -66,8 +110,7 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_smell_img"
             style={{
-              boxShadow:
-                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              border: highlightnose == 1 ? "8px solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -85,8 +128,7 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_taste_img"
             style={{
-              boxShadow:
-                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              border: highlighttongue == 1 ? "8px solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -103,8 +145,7 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_hearing_img"
             style={{
-              boxShadow:
-                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              border: highlightear == 1 ? "8px solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -128,8 +169,7 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_touch_img"
             style={{
-              boxShadow:
-                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              border: highlightskin == 1 ? "8px solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -147,10 +187,9 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_vision_img"
             style={{
-              borderRadius: "100%",
+              border: highlighteye == 1 ? "8px solid yellow" : "",
               top: "3%",
-              boxShadow:
-                "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+              borderRadius: "100%",
             }}
           />
 

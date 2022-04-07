@@ -10,6 +10,7 @@ import { BGContext } from "../../contexts/Background";
 import Game2Map1 from "./Game2AssetMap";
 import Star from "../progressBar";
 import { counter } from "../Helper_function";
+import IntroMap from "../Scene4-Body/Scene4Map";
 
 export default function Game2({
   flowCount,
@@ -20,6 +21,8 @@ export default function Game2({
   G2answer,
   count,
   setCount,
+  setshuffle_g3,
+  shuffle_g3,
 }) {
   const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -33,6 +36,10 @@ export default function Game2({
   const [option1Verify, setoption1Verify] = useState(0);
   const [option2Wrng, setoption2Wrng] = useState(0);
   const [grey, setGrey] = useState(false);
+
+  const [x, setx] = useState("");
+  const [i, seti] = useState(0);
+
   const { intro } = Assets;
 
   const Ref = useRef(null);
@@ -66,6 +73,14 @@ export default function Game2({
     setG2QiD(G2Q1);
     setAnswer(G2A1);
     setWrong(G2W1);
+
+    setx(IntroMap?.[shuffle_g3]);
+    console.log(i);
+    console.log(x[i]);
+
+    console.log(shuffle_g3);
+    const y = shuffle_g3;
+    console.log(y?.sprites);
   }, []);
 
   const playCorrectSound = () => {
@@ -89,8 +104,6 @@ export default function Game2({
     }
   };
 
-  console.log(Game2Map1?.sprites);
-
   const Option1 = () => {
     if (answer < 11) {
       if (playing === false) {
@@ -101,6 +114,7 @@ export default function Game2({
           // const soundEnd = () => {
           const item = Game2Map1?.sprites[answer + 1]?.split("_");
           const item1 = item[2].replace(".svg", "");
+          console.log("/" + item1 + "_Game2");
           const timeout = setTimeout(() => {
             setSceneId("/" + item1 + "_Game2");
           }, 1000);

@@ -129,13 +129,14 @@ export default function Scene3Organs({
             style={{ position: "fixed", width: "20%" }}
           />
 
-          <Image
-            src={Assets?.Scene3?.sprites[text_Id]}
-            alt="txt"
-            id="fadeup"
-            className="senses_scene3_txt"
-          />
-
+          <div className="organ-div">
+            <Image
+              src={Assets?.Scene3?.sprites[text_Id]}
+              alt="txt"
+              id="fadeup"
+              className="senses_scene3_txt"
+            />
+          </div>
           <Image
             src={Assets?.Scene3?.sprites[17]}
             alt="txt"

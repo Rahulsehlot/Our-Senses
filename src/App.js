@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer";
 import Router from "./utils/Router";
@@ -16,8 +16,11 @@ import useLoadAsset from "./utils/useLoadAsset";
 import IntroMap from "./Scenes/intro/AssetMap";
 import Game1Map1 from "./Scenes/Game1Screen/Game1Map";
 import Game1Map2 from "./Scenes/Game1Screen/Game1Map2";
+import { SceneContext } from "./contexts/SceneContext";
 
 function App() {
+  const { SceneId, Assets } = useContext(SceneContext);
+
   const { Loading } = useLoadAsset(IntroMap);
   const [Load, setLoad] = useState(true);
   const [next, setNext] = useState(0);
@@ -32,6 +35,9 @@ function App() {
   const [count, setCount] = useState(0);
   const [shuffle_g1, setshuffle_g1] = useState("");
   const [shuffle_g2, setshuffle_g2] = useState("");
+  const [shuffle_g3, setshuffle_g3] = useState("");
+
+  const [playing, setplaying] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,11 +52,18 @@ function App() {
     seticon2(await LoadImage("internal/images/nosound.svg"));
   };
 
+  // useEffect(() => {
+  //   if (BG_sound !== null) {
+  //     BG_sound?.play();
+  //   }
+  // }, [BG_sound]);
+
   useEffect(() => {
-    if (BG_sound !== null) {
-      // BG_sound?.play();
+    if (BG_sound !== null && SceneId !== "/" && playing === false) {
+      setplaying(true);
+      BG_sound?.play();
     }
-  }, [BG_sound]);
+  }, [BG_sound, SceneId]);
 
   useEffect(() => {
     if (BG_sound) {
@@ -70,7 +83,7 @@ function App() {
 
   return (
     <GameContainer>
-      {!mute && (
+      {!mute && SceneId !== "/" && (
         <img
           src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
           alt=""
@@ -78,7 +91,7 @@ function App() {
           onClick={toggleMute}
         />
       )}
-      {mute && (
+      {mute && SceneId !== "/" && (
         <img
           src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
           alt=""
@@ -92,6 +105,8 @@ function App() {
           setshuffle_g1={setshuffle_g1}
           shuffle_g2={shuffle_g2}
           setshuffle_g2={setshuffle_g2}
+          setshuffle_g3={setshuffle_g3}
+          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/Scene2">
@@ -202,6 +217,8 @@ function App() {
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
+          setshuffle_g3={setshuffle_g3}
+          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/Nose_Game2">
@@ -215,6 +232,8 @@ function App() {
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
+          setshuffle_g3={setshuffle_g3}
+          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/Ear_Game2">
@@ -228,6 +247,8 @@ function App() {
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
+          setshuffle_g3={setshuffle_g3}
+          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/Tongue_Game2">
@@ -241,6 +262,8 @@ function App() {
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
+          setshuffle_g3={setshuffle_g3}
+          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/Skin_Game2">
@@ -254,6 +277,8 @@ function App() {
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
+          setshuffle_g3={setshuffle_g3}
+          shuffle_g3={shuffle_g3}
         />
       </Router>
       {/* <Router sceneId="/Game1">
