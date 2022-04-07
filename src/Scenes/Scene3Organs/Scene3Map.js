@@ -5,33 +5,33 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "Scene3",
 
-  Bg: `${imgUrl}Texture-BG_Light.svg`,
+  Bg: `${imgUrl}texture_bg_light.svg`,
 
   sprites: [
-    `${imgUrl}/Organs/Nose.svg`,
-    `${imgUrl}/Organs/Tongue.svg`,
-    `${imgUrl}/Organs/Ear.svg`,
-    `${imgUrl}/Organs/Touch.svg`,
-    `${imgUrl}/Organs/Eye.svg`,
-    `${imgUrl}Blue-Layer.svg`,
-    `${imgUrl}Organs_images/Girl-touching-flower.svg`,
-    `${imgUrl}Organs_images/Girl-smelling-food.svg`,
-    `${imgUrl}Organs_images/Boy-smelling-Waste.svg`,
-    `${imgUrl}Organs_images/Boy-eating-lemon.svg`,
-    `${imgUrl}Organs_images/Boy-eating-chilli.svg`,
-    `${imgUrl}Organs_images/Girl-eating-Icecream.svg`,
-    `${imgUrl}Organs_images/Car-sound.svg`,
-    `${imgUrl}Organs_images/Girl-lisinting-sound.svg`,
-    `${imgUrl}Organs_images/Speaker-sound.svg`,
-    `${imgUrl}Organs_images/Touching-cat.svg`,
-    `${imgUrl}Organs_images/Touching-stone.svg`,
+    `${imgUrl}/organs/nose.svg`,
+    `${imgUrl}/organs/tongue.svg`,
+    `${imgUrl}/organs/ear.svg`,
+    `${imgUrl}/organs/touch.svg`,
+    `${imgUrl}/organs/eye.svg`,
+    `${imgUrl}blue_layer.svg`,
+    `${imgUrl}organs_images/girl_touching_flower.svg`,
+    `${imgUrl}organs_images/girl_smelling_food.svg`,
+    `${imgUrl}organs_images/boy_smelling_waste.svg`,
+    `${imgUrl}organs_images/boy_eating_lemon.svg`,
+    `${imgUrl}organs_images/boy_eating_chilli.svg`,
+    `${imgUrl}organs_images/girl_eating_icecream.svg`,
+    `${imgUrl}organs_images/car_sound.svg`,
+    `${imgUrl}organs_images/girl_lisinting_sound.svg`,
+    `${imgUrl}organs_images/speaker_sound.svg`,
+    `${imgUrl}organs_images/touching_cat.svg`,
+    `${imgUrl}organs_images/touching_stone.svg`,
     `${imgUrl}next.svg`,
     `${imgUrl}back.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_eyes.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_nose.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_ears.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_tongue.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_skin.svg`,
+    `${imgUrl}scene3images/sb_27_ti_eyes.svg`,
+    `${imgUrl}scene3images/sb_27_ti_nose.svg`,
+    `${imgUrl}scene3images/sb_27_ti_ears.svg`,
+    `${imgUrl}scene3images/sb_27_ti_tongue.svg`,
+    `${imgUrl}scene3images/sb_27_ti_skin.svg`,
   ],
 
   sounds: [
@@ -45,7 +45,7 @@ const IntroMap = {
 
   lottie: [],
 
-  //   eyeobj: [`${eye}Eye.svg`],
+  //   eyeobj: [`${eye}eye.svg`],
 };
 
 export default IntroMap;

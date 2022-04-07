@@ -10,7 +10,7 @@ import { BGContext } from "../../contexts/Background";
 import Game2Map1 from "./Game2AssetMap";
 import Star from "../progressBar";
 import { counter } from "../Helper_function";
-import IntroMap from "../Scene4-Body/Scene4Map";
+import IntroMap from "../Scene6-Body/Scene6AssetMap";
 
 export default function Game2({
   flowCount,
@@ -24,6 +24,8 @@ export default function Game2({
   setshuffle_g3,
   shuffle_g3,
 }) {
+  const { Loading } = useLoadAsset(IntroMap);
+
   const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
@@ -106,6 +108,7 @@ export default function Game2({
 
   const Option1 = () => {
     if (answer < 11) {
+      console.log(answer);
       if (playing === false) {
         Assets?.Scene22?.sounds[flowCount]?.stop();
         playCorrectSound();
@@ -114,7 +117,7 @@ export default function Game2({
           // const soundEnd = () => {
           const item = Game2Map1?.sprites[answer + 1]?.split("_");
           const item1 = item[2].replace(".svg", "");
-          console.log("/" + item1 + "_Game2");
+          console.log(item1);
           const timeout = setTimeout(() => {
             setSceneId("/" + item1 + "_Game2");
           }, 1000);
@@ -154,7 +157,7 @@ export default function Game2({
         setGrey(false);
       });
     }
-  }, [Assets, isLoading]);
+  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {

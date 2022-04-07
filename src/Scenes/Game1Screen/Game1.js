@@ -129,13 +129,13 @@ export default function Game1({
     if (playing === false) {
       const ans = nextload?.sprites[G1ImgID];
       const slice = ans
-        .replace("internal/images/Organs_images/", "")
-        .replace("_Nose.svg", "");
+        .replace("internal/images/organs_images/", "")
+        .replace("_nose.svg", "");
       const verify = ans
-        .replace("internal/images/Organs_images/", "")
+        .replace("internal/images/organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-      if (verify === "Nose") {
+      if (verify === "nose") {
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
         setHand(0);
@@ -159,13 +159,13 @@ export default function Game1({
     if (playing === false) {
       const ans = nextload?.sprites[G1ImgID];
       const slice = ans
-        .replace("internal/images/Organs_images/", "")
-        .replace("_Tongue.svg", "");
+        .replace("internal/images/organs_images/", "")
+        .replace("_tongue.svg", "");
       const verify = ans
-        .replace("internal/images/Organs_images/", "")
+        .replace("internal/images/organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-      if (verify === "Tongue") {
+      if (verify === "tongue") {
         Assets?.Game2?.sounds[18]?.stop();
         setHand(0);
         setClicked(1);
@@ -188,13 +188,13 @@ export default function Game1({
     if (playing === false) {
       const ans = nextload?.sprites[G1ImgID];
       const slice = ans
-        .replace("internal/images/Organs_images/", "")
-        .replace("_Ear.svg", "");
+        .replace("internal/images/organs_images/", "")
+        .replace("_ear.svg", "");
       const verify = ans
-        .replace("internal/images/Organs_images/", "")
+        .replace("internal/images/organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-      if (verify === "Ear") {
+      if (verify === "ear") {
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
 
@@ -219,13 +219,13 @@ export default function Game1({
     if (playing === false) {
       const ans = nextload?.sprites[G1ImgID];
       const slice = ans
-        .replace("internal/images/Organs_images/", "")
-        .replace("_Skin.svg", "");
+        .replace("internal/images/organs_images/", "")
+        .replace("_skin.svg", "");
       const verify = ans
-        .replace("internal/images/Organs_images/", "")
+        .replace("internal/images/organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-      if (verify === "Skin") {
+      if (verify === "skin") {
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
 
@@ -250,13 +250,13 @@ export default function Game1({
     if (playing === false) {
       const ans = nextload?.sprites[G1ImgID];
       const slice = ans
-        .replace("internal/images/Organs_images/", "")
-        .replace("_Eye.svg", "");
+        .replace("internal/images/organs_images/", "")
+        .replace("_eye.svg", "");
       const verify = ans
-        .replace("internal/images/Organs_images/", "")
+        .replace("internal/images/organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-      if (verify === "Eye") {
+      if (verify === "eye") {
         Assets?.Game2?.sounds[18]?.stop();
         setClicked(1);
         setHand(0);

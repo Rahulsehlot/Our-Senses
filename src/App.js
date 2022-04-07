@@ -204,9 +204,10 @@ function App() {
           setNext={setNext}
           setG2Wrng={setG2Wrng}
           setCount={setCount}
+          BG_sound={BG_sound}
         />
       </Router>
-      <Router sceneId="/Eye_Game2">
+      <Router sceneId="/eye_Game2">
         <Game2
           G2Ans={G2Ans}
           setG2Ans={setG2Ans}
@@ -221,7 +222,7 @@ function App() {
           shuffle_g3={shuffle_g3}
         />
       </Router>
-      <Router sceneId="/Nose_Game2">
+      <Router sceneId="/nose_Game2">
         <Game2
           G2Ans={G2Ans}
           setG2Ans={setG2Ans}
@@ -236,7 +237,7 @@ function App() {
           shuffle_g3={shuffle_g3}
         />
       </Router>
-      <Router sceneId="/Ear_Game2">
+      <Router sceneId="/ear_Game2">
         <Game2
           G2Ans={G2Ans}
           setG2Ans={setG2Ans}
@@ -251,7 +252,7 @@ function App() {
           shuffle_g3={shuffle_g3}
         />
       </Router>
-      <Router sceneId="/Tongue_Game2">
+      <Router sceneId="/tongue_Game2">
         <Game2
           G2Ans={G2Ans}
           setG2Ans={setG2Ans}
@@ -266,7 +267,7 @@ function App() {
           shuffle_g3={shuffle_g3}
         />
       </Router>
-      <Router sceneId="/Skin_Game2">
+      <Router sceneId="/skin_Game2">
         <Game2
           G2Ans={G2Ans}
           setG2Ans={setG2Ans}

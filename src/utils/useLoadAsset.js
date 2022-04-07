@@ -19,7 +19,6 @@ export default function useLoadAsset(Map) {
       sounds: [],
       sprites: [],
     };
-
     const loadImage = new Promise((resolve, reject) => {
       LoadImage(Map.Bg)
         .then((v) => {

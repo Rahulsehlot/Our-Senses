@@ -15,8 +15,8 @@ export default function Scene6({
   setNext,
   setG2Wrng,
   setCount,
+  BG_sound,
 }) {
-  const { Loading } = useLoadAsset(IntroMap);
   const { Bg, setBg } = useContext(BGContext);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -30,7 +30,7 @@ export default function Scene6({
   useEffect(() => {
     setBg(Assets?.Scene2?.Bg);
     setCount(0);
-    if (Assets?.Scene2 && !Loading) {
+    if (Assets?.Scene2) {
       setplaying(true);
       Assets?.Scene2?.sounds[0]?.play();
       Assets?.Scene2?.sounds[0].on("end", () => {
@@ -44,11 +44,11 @@ export default function Scene6({
         });
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, []);
 
   const RetryGame = () => {
     if (playing === false) {
-      if (Assets?.Scene2 && !Loading) {
+      if (Assets?.Scene2) {
         Assets?.Scene2?.sounds[1].play();
         Assets?.Scene2?.sounds[1].on("end", () => {
           setSceneId("/");
@@ -56,13 +56,14 @@ export default function Scene6({
           setG2Ans(5);
           setG2Wrng(12);
           setNext(0);
+          BG_sound?.mute(true);
         });
       }
     }
   };
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -76,7 +77,7 @@ export default function Scene6({
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, [Assets]);
 
   return (
     <Scenes

@@ -5,58 +5,58 @@ const lottieUrl = "internal/lottie/";
 const Game2Map3 = {
   id: "Scene22",
 
-  Bg: `${imgUrl}Texture-BG_Dark.svg`,
+  Bg: `${imgUrl}texture_bg_dark.svg`,
 
   sprites: [
-    `${imgUrl}Organs/Touch.svg`,
-    `${imgUrl}Organs/Nose.svg`,
-    `${imgUrl}Organs/Ear.svg`,
-    `${imgUrl}Organs/Eye.svg`,
-    `${imgUrl}Organs/Tongue.svg`,
+    `${imgUrl}organs/touch.svg`,
+    `${imgUrl}organs/nose.svg`,
+    `${imgUrl}organs/ear.svg`,
+    `${imgUrl}organs/eye.svg`,
+    `${imgUrl}organs/tongue.svg`,
 
-    `${imgUrl}Game2_Images/Skin/Set-of-clothes_Skin.svg`,
+    `${imgUrl}game2_images/skin/setofclothes_skin.svg`,
 
-    `${imgUrl}Game2_Images/Nose/Incense-stick_Nose.svg`,
+    `${imgUrl}game2_images/nose/incensestick_nose.svg`,
 
-    `${imgUrl}Game2_Images/Ear/Speakers_Ear.svg`,
+    `${imgUrl}game2_images/ear/speakers_ear.svg`,
 
-    `${imgUrl}Game2_Images/Eye/Camp-fire_Eye.svg`,
+    `${imgUrl}game2_images/eye/campfire_eye.svg`,
 
-    `${imgUrl}Game2_Images/Tongue/Mango_Tongue.svg`,
+    `${imgUrl}game2_images/tongue/mango_tongue.svg`,
 
-    `${imgUrl}Game2_Images/Skin/Cotton_Skin.svg`,
+    `${imgUrl}game2_images/skin/cotton_skin.svg`,
 
-    `${imgUrl}Game2_Images/Nose/Pizza_Nose.svg`,
+    `${imgUrl}game2_images/nose/pizza_nose.svg`,
 
-    `${imgUrl}Game2_Images/Eye/Tiger_Eye.svg`,
+    `${imgUrl}game2_images/eye/tiger_eye.svg`,
 
-    `${imgUrl}Game2_Images/Skin/Football_Skin.svg`,
+    `${imgUrl}game2_images/skin/football_skin.svg`,
 
-    `${imgUrl}Game2_Images/Eye/Ice-mountain_Eye.svg`,
+    `${imgUrl}game2_images/eye/icemountain_eye.svg`,
 
-    `${imgUrl}Game2_Images/Skin/Pencile_Skin.svg`,
+    `${imgUrl}game2_images/skin/pencile_skin.svg`,
 
-    `${imgUrl}Game2_Images/Skin/Stones_Skin.svg`,
+    `${imgUrl}game2_images/skin/stones_skin.svg`,
 
-    `${imgUrl}Game2_Images/Eye/Camp-fire_Eye.svg`,
+    `${imgUrl}game2_images/eye/campfire_eye.svg`,
 
-    `${imgUrl}Game2_Images/Eye/Set-of-books_Eye.svg`,
+    `${imgUrl}game2_images/eye/setofbooks_eye.svg`,
 
-    `${imgUrl}Audio_replay_button.svg`,
-    `${imgUrl}Layout_Box_Icon.svg`,
-    `${imgUrl}Layout_Box_Icon_Green_Highlight.svg`,
-    `${imgUrl}Layout_Box_Icon_Red_Highlight.svg`,
+    `${imgUrl}audio_replay_button.svg`,
+    `${imgUrl}layout_box_icon.svg`,
+    `${imgUrl}layout_box_icon_green_highlight.svg`,
+    `${imgUrl}layout_box_icon_red_highlight.svg`,
   ],
 
   sounds: [
-    `${soundUrl}game2-sounds/sense-of-touch.mp3`,
-    `${soundUrl}game2-sounds/sense-of-eye.mp3`,
-    `${soundUrl}game2-sounds/sense-of-smell.mp3`,
-    `${soundUrl}game2-sounds/sense-of-hearing.mp3`,
-    `${soundUrl}game2-sounds/sense-of-taste.mp3`,
-    `${soundUrl}correct-answer-Game2.mp3`,
-    `${soundUrl}wrong-answer-Game2.mp3`,
-    `${soundUrl}mouse-click.mp3`,
+    `${soundUrl}game2_sounds/sense_of_touch.mp3`,
+    `${soundUrl}game2_sounds/sense_of_eye.mp3`,
+    `${soundUrl}game2_sounds/sense_of_smell.mp3`,
+    `${soundUrl}game2_sounds/sense_of_hearing.mp3`,
+    `${soundUrl}game2_sounds/sense_of_taste.mp3`,
+    `${soundUrl}correct_answer_game2.mp3`,
+    `${soundUrl}wrong_answer_game2.mp3`,
+    `${soundUrl}mouse_click.mp3`,
   ],
 
   lottie: [],

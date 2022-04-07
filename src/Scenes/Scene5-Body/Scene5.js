@@ -51,7 +51,7 @@ export default function Scene5({ nextload, setCount }) {
     if (Assets?.Scene5 && !Loading) {
       Assets?.Scene5?.sounds[0]?.play();
       Assets?.Scene5?.sounds[0].on("end", () => {
-        setSceneId("/Eye_Game2");
+        setSceneId("/eye_Game2");
       });
     }
   }, [Assets, Loading, isLoading]);
@@ -75,7 +75,7 @@ export default function Scene5({ nextload, setCount }) {
 
   const forward = () => {
     stop_all_sounds();
-    setSceneId("/Eye_Game2");
+    setSceneId("/eye_Game2");
   };
 
   return (

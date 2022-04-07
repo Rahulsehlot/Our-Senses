@@ -5,19 +5,19 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "Scene5",
 
-  Bg: `${imgUrl}Texture-BG_Light.svg`,
+  Bg: `${imgUrl}texture_bg_light.svg`,
 
   sprites: [
-    `${imgUrl}Organs/Eye.svg`,
-    `${imgUrl}Newspaper.svg`,
-    `${imgUrl}Sun.svg`,
-    `${imgUrl}Arrow_Icon.svg`,
-    `${imgUrl}Skip_Btn.svg`,
+    `${imgUrl}organs/eye.svg`,
+    `${imgUrl}newspaper.svg`,
+    `${imgUrl}sun.svg`,
+    `${imgUrl}arrow_icon.svg`,
+    `${imgUrl}skip_btn.svg`,
   ],
 
-  sounds: [`${soundUrl}Game2_sound.mp3`],
+  sounds: [`${soundUrl}game2_sound.mp3`],
 
-  lottie: [`${lottieUrl}main_character.json`],
+  lottie: [],
 };
 
 export default IntroMap;

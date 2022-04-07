@@ -5,20 +5,20 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "Scene4",
 
-  Bg: `${imgUrl}Texture-BG_Light.svg`,
+  Bg: `${imgUrl}texture_bg_light.svg`,
 
   sprites: [
-    `${imgUrl}Organs_button/Nose_Button_Icon.svg`,
-    `${imgUrl}Organs_button/Tongue_Button_Icon.svg`,
-    `${imgUrl}Organs_button/Ear_Button_Icon.svg`,
-    `${imgUrl}Organs_button/Skin_Button_Icon.svg`,
-    `${imgUrl}Organs_button/Eye_Button_Icon.svg`,
-    `${imgUrl}Skip_Btn.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_eyes.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_nose.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_ears.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_tongue.svg`,
-    `${imgUrl}Scene3Images/SB_27_TI_skin.svg`,
+    `${imgUrl}organs_button/nose_button_icon.svg`,
+    `${imgUrl}organs_button/tongue_button_icon.svg`,
+    `${imgUrl}organs_button/ear_button_icon.svg`,
+    `${imgUrl}organs_button/skin_button_icon.svg`,
+    `${imgUrl}organs_button/eye_button_icon.svg`,
+    `${imgUrl}skip_btn.svg`,
+    `${imgUrl}scene3images/sb_27_ti_eyes.svg`,
+    `${imgUrl}scene3images/sb_27_ti_nose.svg`,
+    `${imgUrl}scene3images/sb_27_ti_ears.svg`,
+    `${imgUrl}scene3images/sb_27_ti_tongue.svg`,
+    `${imgUrl}scene3images/sb_27_ti_skin.svg`,
   ],
 
   sounds: [`${soundUrl}lets_play_a_game.mp3`],

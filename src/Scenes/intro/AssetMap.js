@@ -5,27 +5,27 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "intro",
 
-  Bg: `${imgUrl}Intro-bg.svg`,
+  Bg: `${imgUrl}intro_bg.svg`,
 
   sprites: [
-    `${imgUrl}Intro-Text.svg`,
-    `${imgUrl}Smell.svg`,
-    `${imgUrl}Taste.svg`,
-    `${imgUrl}Hearing.svg`,
-    `${imgUrl}Touch.svg`,
-    `${imgUrl}Vision.svg`,
+    `${imgUrl}intro_text.svg`,
+    `${imgUrl}smell.svg`,
+    `${imgUrl}taste.svg`,
+    `${imgUrl}hearing.svg`,
+    `${imgUrl}touch.svg`,
+    `${imgUrl}vision.svg`,
     `${imgUrl}btn.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_smell.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_taste.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_hear.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_touch.svg`,
-    `${imgUrl}Scene2Images/SB_27_Intro_Text_Sight.svg`,
-    `${imgUrl}progress_bar/SB_27_Progress_Bar.svg`,
-    `${imgUrl}progress_bar/SB_27_Progress_Bar_Gray_Star.svg`,
-    `${imgUrl}progress_bar/SB_27_Progress_Bar_Yellow_Star.svg`,
+    `${imgUrl}scene2images/sb_27_ti_smell.svg`,
+    `${imgUrl}scene2images/sb_27_ti_taste.svg`,
+    `${imgUrl}scene2images/sb_27_ti_hear.svg`,
+    `${imgUrl}scene2images/sb_27_ti_touch.svg`,
+    `${imgUrl}scene2images/sb_27_intro_text_sight.svg`,
+    `${imgUrl}progress_bar/sb_27_progress_bar.svg`,
+    `${imgUrl}progress_bar/sb_27_progress_bar_gray_star.svg`,
+    `${imgUrl}progress_bar/sb_27_progress_bar_yellow_star.svg`,
   ],
 
-  sounds: [`${soundUrl}Intro_sound.mp3`],
+  sounds: [`${soundUrl}intro_sound.mp3`],
 
   lottie: [],
 };

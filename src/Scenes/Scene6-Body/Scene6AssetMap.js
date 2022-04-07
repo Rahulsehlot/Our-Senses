@@ -5,14 +5,14 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "Scene2",
 
-  Bg: `${imgUrl}Welldone_BG.svg`,
+  Bg: `${imgUrl}welldone_bg.svg`,
 
   sprites: [`${imgUrl}replay_btn.svg`],
 
   sounds: [
     `${soundUrl}well_done.mp3`,
-    `${soundUrl}mouse-click.mp3`,
-    `${soundUrl}replayAudio.mp3`,
+    `${soundUrl}mouse_click.mp3`,
+    `${soundUrl}replayaudio.mp3`,
     `${soundUrl}cheering.mp3`,
   ],
 
