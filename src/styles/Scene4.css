@@ -1,21 +1,19 @@
 .senses_vision_btn {
-  left: 0%;
-}
+  left:2%}
 .senses_smell_btn {
-  left: 20%;
+  left:21%;
 }
 
 .senses_taste_btn {
-  left: 40%;
+  left:41%
 }
 
 .senses_hearing_btn {
-  left: 60%;
+  left:61%
 }
 
 .senses_touch_btn {
-  left: 80%;
-}
+  left:80%}
 
 .Scene4_lottie_container {
   background-color: white;
@@ -31,28 +29,18 @@
 }
 
 .senses_vision_txt {
-  width: 10%;
-  left: 5.5%;
-}
+  left:5.5%;width:10%}
 
 .senses_smell_txt {
-  width: 10%;
-  left: 25%;
-}
+  left:24%;width:10%}
 
 .senses_Taste_txt {
-  width: 10%;
-  left: 45%;
-}
+  left:44%;width:10%}
 .senses_hearing_txt {
-  width: 10%;
-  left: 65%;
-}
+  left:64%;width:10%}
 
 .senses_touch_txt {
-  width: 10%;
-  left: 85%;
-}
+  left:83%;width:10%}
 
 .audio_replay_icon_scene6 {
   position: fixed;
@@ -61,7 +49,7 @@
   width: 10%;
   /* background-color: aqua; */
   border-radius: 50%;
-  z-index: 3;
+  z-index: 99;
 }
 
 .Scene6_lottie_container {

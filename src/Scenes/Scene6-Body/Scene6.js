@@ -7,9 +7,18 @@ import IntroMap from "./Scene6AssetMap";
 import lottie from "lottie-web";
 import "../../styles/Scene4.css";
 import Image from "../../utils/elements/Image";
+import { BGContext } from "../../contexts/Background";
 
-export default function Scene6({ setCounter, setG2Ans, setNext, setG2Wrng }) {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+export default function Scene6({
+  setCounter,
+  setG2Ans,
+  setNext,
+  setG2Wrng,
+  setCount,
+}) {
+  const { Loading } = useLoadAsset(IntroMap);
+  const { Bg, setBg } = useContext(BGContext);
+
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const [playing, setplaying] = useState(false);
@@ -19,6 +28,8 @@ export default function Scene6({ setCounter, setG2Ans, setNext, setG2Wrng }) {
   const Ref = useRef(null);
 
   useEffect(() => {
+    setBg(Assets?.Scene2?.Bg);
+    setCount(0);
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
       Assets?.Scene2?.sounds[0]?.play();
@@ -43,8 +54,8 @@ export default function Scene6({ setCounter, setG2Ans, setNext, setG2Wrng }) {
           setSceneId("/");
           setCounter(6);
           setG2Ans(5);
+          setG2Wrng(12);
           setNext(0);
-          setG2Wrng(31);
         });
       }
     }

@@ -3,10 +3,11 @@ import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import PlayAudio from "../../utils/playAudio";
-import IntroMap from "./Scene3Map";
 import lottie from "lottie-web";
 import "../../styles/Scene3.css";
 import Image from "../../utils/elements/Image";
+import { BGContext } from "../../contexts/Background";
+import IntroMap from "../Scene4-Body/Scene4Map";
 
 export default function Scene3Organs({
   next,
@@ -18,7 +19,8 @@ export default function Scene3Organs({
   scenename,
   text_Id,
 }) {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
+  const { Loading } = useLoadAsset(IntroMap);
+  const { Bg, setBg } = useContext(BGContext);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
@@ -31,10 +33,12 @@ export default function Scene3Organs({
   };
 
   useEffect(() => {
+    setBg(Assets?.Scene3?.Bg);
+
     setName(IntroMap.select[next]);
-    if (Assets?.Scene3 && !Loading) {
-      Assets?.Scene3?.sounds[soundId].play();
-      Assets?.Scene3?.sounds[soundId].on("end", () => {
+    if (Assets?.Scene3) {
+      Assets?.Scene3?.sounds[soundId]?.play();
+      Assets?.Scene3?.sounds[soundId]?.on("end", () => {
         if (next < 4) {
           const nxtitem = next + 1;
           const item = IntroMap.select[nxtitem];
@@ -52,7 +56,7 @@ export default function Scene3Organs({
         }
       });
     }
-  }, [Assets, Loading, isLoading]);
+  }, []);
 
   const back = () => {
     setTriggered(true);
@@ -125,13 +129,14 @@ export default function Scene3Organs({
             style={{ position: "fixed", width: "20%" }}
           />
 
-          <Image
-            src={Assets?.Scene3?.sprites[text_Id]}
-            alt="txt"
-            id="fadeup"
-            className="senses_scene3_txt"
-          />
-
+          <div className="organ-div">
+            <Image
+              src={Assets?.Scene3?.sprites[text_Id]}
+              alt="txt"
+              id="fadeup"
+              className="senses_scene3_txt"
+            />
+          </div>
           <Image
             src={Assets?.Scene3?.sprites[17]}
             alt="txt"

@@ -3,7 +3,7 @@ const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
 const IntroMap = {
-  id: "Scene2",
+  id: "Scene4",
 
   Bg: `${imgUrl}Texture-BG_Light.svg`,
 
@@ -23,7 +23,38 @@ const IntroMap = {
 
   sounds: [`${soundUrl}lets_play_a_game.mp3`],
 
-  lottie: [`${lottieUrl}main_character.json`],
+  lottie: [],
+  select: ["Eyes", "Nose", "Tongue", "Ears", "Skin"],
+
+  Game2Map1: [
+    "/Eye_Game2",
+    "/Nose_Game2",
+    "/Ear_Game2",
+    "/Tongue_Game2",
+    "/Skin_Game2",
+    "/Eye_Game2",
+    "/Nose_Game2",
+  ],
+
+  Game2Map2: [
+    "/Ear_Game2",
+    "/Tongue_Game2",
+    "/Skin_Game2",
+    "/Eye_Game2",
+    "/Nose_Game2",
+    "/Ear_Game2",
+    "/Tongue_Game2",
+  ],
+
+  Game2Map3: [
+    "/Skin_Game2",
+    "/Nose_Game2",
+    "/Nose_Game2",
+    "/Ear_Game2",
+    "/Tongue_Game2",
+    "/Skin_Game2",
+    "/Eye_Game2",
+  ],
 };
 
 export default IntroMap;

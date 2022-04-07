@@ -7,12 +7,9 @@
 }
 
 .senses_scene3_txt {
-  position: fixed;
-  width: 15%;
-  top: 60%;
-  left: 9%;
-  z-index: 9;
-}
+  height: 100%;
+  width: 50%;
+  z-index: 9;}
 
 .Eyes_positionProp1 {
   right: 20%;
@@ -78,9 +75,20 @@
 }
 
 .next {
+  bottom: 4%;
+  right: 1%;
+  width: 6%;
   position: fixed;
-  right: 2%;
-  bottom: 5%;
   z-index: 5;
-  width: 7%;
+}
+
+
+.organ-div{
+  display: flex;
+    height: 13%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 57%;
+    width: 28.3%;
 }

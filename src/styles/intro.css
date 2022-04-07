@@ -8,51 +8,46 @@
 }
 
 .senses_txt_img {
-  width: 45%;
+  left: 28%;
   position: fixed;
-  top: 10%;
-  left: 26%;
+  top: 7%;
+  width: 39%;
 }
 
 .senses_smell_img {
-  width: 20%;
   position: fixed;
-  top: 50%;
   right: 5%;
-}
+  top: 51%;
+  width: 16%;}
 .senses_taste_img {
-  width: 20%;
+  left: 5.5%;
   position: fixed;
-  top: 5%;
-  left: 5%;
-}
+  top: 3%;
+  width: 16%;}
 .senses_hearing_img {
-  width: 20%;
   position: fixed;
-  top: 5%;
-  right: 5%;
-}
+  right: 6%;
+  top: 2%;
+  width: 16%;}
 
 .senses_touch_img {
-  width: 20%;
+  left: 5%;
   position: fixed;
   top: 50%;
-  left: 5%;
-}
+  width: 16%;}
 
 .senses_vision_img {
-  width: 20%;
+  left: 41%;
   position: fixed;
   top: 50%;
-  left: 40%;
-}
+  width: 16%;}
 
 .play_btn {
-  position: fixed;
-  bottom: 36%;
-  left: 58%;
-  width: 10%;
+  bottom: 34%;
   cursor: pointer;
+  left: 59%;
+  position: fixed;
+  width: 10%;
 }
 
 .play_btn:active {
@@ -61,6 +56,7 @@
 }
 
 .mute_btn {
+  cursor: pointer;
   width: 5%;
   position: fixed;
   position: fixed;
@@ -75,51 +71,122 @@
 }
 
 .senses_smell {
-  width: 14%;
-  position: fixed;
-  top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  right: 7%;
-  color: #fff;
-}
+color: #fff;
+    font-size: 3vw!important;
+    font-weight: 700;
+    position: fixed;
+    width: 14%;
+    right: 7%;
+     top: 87%;}
 
 .senses_taste {
-  width: 14%;
-  position: fixed;
-  top: 39.5%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 7.5%;
   color: #fff;
+  font-size: 3vw!important;
+  font-weight: 700;
+  position: fixed;
+  width: 14%;
+
+  left: 6.5%;
+  top: 39.5%;
 }
 
 .senses_hearing {
-  width: 14%;
-  position: fixed;
-  top: 39.5%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  right: 8%;
   color: #fff;
-}
+  position: fixed;
+  right: 5.5%;
+  top: 39.5%;
+  width: 17%;}
 
 .senses_touch {
-  width: 14%;
+  color: #fff;
+  font-size: 3vw!important;
+  font-weight: 700;
   position: fixed;
   top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 7.5%;
-  color: #fff;
-}
+  left: 5.5%;
+  width: 14%;}
 
 .senses_vision {
-  width: 14%;
+  color: #fff;
+  font-size: 3vw!important;
+  font-weight: 700;
   position: fixed;
   top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 43%;
-  color: #fff;
+  left: 40%;
+  width: 18%;}
+
+#stars {
+  width: 13%;
+}
+
+.progress_Bar {
+  border-radius: 25pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  /* height: 6.3%; */
+  position: fixed;
+  bottom: 85.5%;
+  /* right: 7%; */
+  left: 73%;
+}
+
+#star_wrap0 {
+  grid-gap: 2px;
+  align-items: center;
+  border-radius: 25pt;
+  bottom: 89%;
+  display: flex;
+  height: 7.7%;
+  position: fixed;
+  width: 22.6%;
+  justify-content: center;
+  left: 74%;}
+
+#star_wrap1 {
+  grid-gap: 2px;
+  align-items: center;
+  border-radius: 25pt;
+  bottom: 89%;
+  display: flex;
+  height: 7.7%;
+  position: fixed;
+  width: 22.6%;
+  flex-direction: row;
+  left: 74.6%;}
+
+.star_off {
+  width: 13%;
+}
+
+.current_star {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(1px, -1px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(1px, -1px, 0);
+  }
 }

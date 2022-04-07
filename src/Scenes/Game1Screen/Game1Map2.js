@@ -2,7 +2,7 @@ const imgUrl = "internal/images/";
 const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
-const Game1Map1 = {
+const Game1Map2 = {
   id: "Game2",
 
   sprites: [
@@ -12,13 +12,13 @@ const Game1Map1 = {
     `${imgUrl}Organs_button/Skin_Button_Icon.svg`,
     `${imgUrl}Organs_button/Eye_Button_Icon.svg`,
     `${imgUrl}Organs_button/Dotted-Line.svg`,
-    `${imgUrl}Organs_images/Boy-watching-sunset_Eye.svg`,
-    `${imgUrl}Organs_images/Boy-smelling-rose_Nose.svg`,
-    `${imgUrl}Organs_images/Bell-sound_Ear.svg`,
-    `${imgUrl}Organs_images/Cup-cake_Tongue.svg`,
-    `${imgUrl}Organs_images/Teddy_Skin.svg`,
-    `${imgUrl}Organs_images/City_Eye.svg`,
-    `${imgUrl}Organs_images/Perfume_Nose.svg`,
+    `${imgUrl}Organs_images/Tambourine_Ear.svg`,
+    `${imgUrl}Organs_images/Chocolates_Tongue.svg`,
+    `${imgUrl}Organs_images/Sand_Skin.svg`,
+    `${imgUrl}Organs_images/Rainbow_Eye.svg`,
+    `${imgUrl}Organs_images/Dustbin_Nose.svg`,
+    `${imgUrl}Organs_images/Drums_Ear.svg`,
+    `${imgUrl}Organs_images/Lemon_Tongue.svg`,
     `${imgUrl}Audio_replay_button.svg`,
     `${imgUrl}Hand_Icon.svg`,
     `${imgUrl}Button_Icon_Green_Highlight.svg`,
@@ -27,13 +27,13 @@ const Game1Map1 = {
   ],
 
   sounds: [
-    `${soundUrl}6.mp3`,
-    `${soundUrl}7.mp3`,
-    `${soundUrl}8.mp3`,
-    `${soundUrl}9.mp3`,
-    `${soundUrl}10.mp3`,
-    `${soundUrl}11.mp3`,
-    `${soundUrl}12.mp3`,
+    `${soundUrl}13.mp3`,
+    `${soundUrl}14.mp3`,
+    `${soundUrl}15.mp3`,
+    `${soundUrl}16.mp3`,
+    `${soundUrl}17.mp3`,
+    `${soundUrl}18.mp3`,
+    `${soundUrl}19.mp3`,
     `${soundUrl}correct-answer-Game2.mp3`,
     `${soundUrl}wrong-answer-Game2.mp3`,
     `${soundUrl}countdown.mp3`,
@@ -44,6 +44,8 @@ const Game1Map1 = {
   select: ["Nose", "Tongue", "Ear", "Touch", "Eye"],
 
   hint: ["Eyes", "Nose", "Ears", "Tongue", "Skin"],
+
+  counter: 6,
 };
 
-export default Game1Map1;
+export default Game1Map2;

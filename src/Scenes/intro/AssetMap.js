@@ -19,7 +19,10 @@ const IntroMap = {
     `${imgUrl}Scene2Images/SB_27_TI_taste.svg`,
     `${imgUrl}Scene2Images/SB_27_TI_hear.svg`,
     `${imgUrl}Scene2Images/SB_27_TI_touch.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_see.svg`,
+    `${imgUrl}Scene2Images/SB_27_Intro_Text_Sight.svg`,
+    `${imgUrl}progress_bar/SB_27_Progress_Bar.svg`,
+    `${imgUrl}progress_bar/SB_27_Progress_Bar_Gray_Star.svg`,
+    `${imgUrl}progress_bar/SB_27_Progress_Bar_Yellow_Star.svg`,
   ],
 
   sounds: [`${soundUrl}Intro_sound.mp3`],
