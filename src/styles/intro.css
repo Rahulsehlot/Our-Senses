@@ -133,34 +133,23 @@ color: #fff;
 }
 
 #star_wrap0 {
-  grid-gap: 2px;
   align-items: center;
   border-radius: 25pt;
   bottom: 89%;
   display: flex;
-  height: 7.7%;
+  height: 8%;
   position: fixed;
-  width: 22.6%;
-  justify-content: center;
-  left: 74%;}
+  width: 22.5%;
+  justify-content: space-evenly;
+  left: 74.1%;
+}
 
-#star_wrap1 {
-  grid-gap: 2px;
-  align-items: center;
-  border-radius: 25pt;
-  bottom: 89%;
-  display: flex;
-  height: 7.7%;
-  position: fixed;
-  width: 22.6%;
-  flex-direction: row;
-  left: 74.6%;}
 
 .star_off {
   width: 13%;
 }
 
-.current_star {
+.star {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;

@@ -69,8 +69,8 @@ export default function Scene6({
     if (playing === false) {
       setSceneId("/");
       setCounter(6);
-      setG2Ans(5);
-      setG2Wrng(12);
+      setG2Ans(4);
+      setG2Wrng(11);
       setNext(0);
     }
   };

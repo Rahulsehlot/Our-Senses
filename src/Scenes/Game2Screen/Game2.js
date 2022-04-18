@@ -82,6 +82,8 @@ export default function Game2({
     setG2QiD(G2Q1);
     setAnswer(G2A1);
     setWrong(G2W1);
+    console.log(G2A1, "**", G2W1);
+    console.log(answer, "****", wrong);
   }, []);
 
   const playCorrectSound = () => {

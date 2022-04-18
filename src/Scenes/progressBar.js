@@ -34,97 +34,74 @@ export default function Star({ num }) {
 
           <div id="star_wrap0" style={{ position: "fixed" }}>
             <Image
-              src={Assets?.intro?.sprites[13]}
-              alt="txt"
-              id="fadeup"
-              className="star_off"
-            />
-            <Image
-              src={Assets?.intro?.sprites[13]}
-              alt="txt"
-              id="fadeup"
-              className="star_off"
-            />
-            <Image
-              src={Assets?.intro?.sprites[13]}
-              alt="txt"
-              id="fadeup"
-              className="star_off"
-            />
-            <Image
-              src={Assets?.intro?.sprites[13]}
-              alt="txt"
-              id="fadeup"
-              className="star_off"
-            />
-            <Image
-              src={Assets?.intro?.sprites[13]}
-              alt="txt"
-              id="fadeup"
-              className="star_off"
-            />
-            <Image
-              src={Assets?.intro?.sprites[13]}
-              alt="txt"
-              id="fadeup"
-              className="star_off"
-            />
-            <Image
-              src={Assets?.intro?.sprites[13]}
-              alt="txt"
-              id="fadeup"
-              className="star_off"
-            />
-          </div>
-          <div id="star_wrap1" style={{ position: "fixed" }}>
-            <Image
-              src={Assets?.intro?.sprites[14]}
+              src={
+                num >= 1
+                  ? Assets?.intro?.sprites[14]
+                  : Assets?.intro?.sprites[13]
+              }
               alt="txt"
               id="stars"
-              className={num === 1 ? "current_star" : ""}
-              style={{ display: num >= 1 ? "block" : "none" }}
+              className={num === 1 ? "star" : ""}
             />
             <Image
-              src={Assets?.intro?.sprites[14]}
+              src={
+                num >= 2
+                  ? Assets?.intro?.sprites[14]
+                  : Assets?.intro?.sprites[13]
+              }
               alt="txt"
               id="stars"
-              className={num === 2 ? "current_star" : ""}
-              style={{ display: num >= 2 ? "block" : "none" }}
+              className={num === 2 ? "star" : ""}
             />
             <Image
-              src={Assets?.intro?.sprites[14]}
+              src={
+                num >= 3
+                  ? Assets?.intro?.sprites[14]
+                  : Assets?.intro?.sprites[13]
+              }
               alt="txt"
               id="stars"
-              className={num === 3 ? "current_star" : ""}
-              style={{ display: num >= 3 ? "block" : "none" }}
+              className={num === 3 ? "star" : ""}
             />
             <Image
-              src={Assets?.intro?.sprites[14]}
+              src={
+                num >= 4
+                  ? Assets?.intro?.sprites[14]
+                  : Assets?.intro?.sprites[13]
+              }
               alt="txt"
               id="stars"
-              className={num === 4 ? "current_star" : ""}
-              style={{ display: num >= 4 ? "block" : "none" }}
+              className={num === 4 ? "star" : ""}
             />
             <Image
-              src={Assets?.intro?.sprites[14]}
+              src={
+                num >= 5
+                  ? Assets?.intro?.sprites[14]
+                  : Assets?.intro?.sprites[13]
+              }
               alt="txt"
               id="stars"
-              className={num === 5 ? "current_star" : ""}
-              style={{ display: num >= 5 ? "block" : "none" }}
+              className={num === 5 ? "star" : ""}
             />
             <Image
-              src={Assets?.intro?.sprites[14]}
+              src={
+                num >= 6
+                  ? Assets?.intro?.sprites[14]
+                  : Assets?.intro?.sprites[13]
+              }
               alt="txt"
               id="stars"
-              className={num === 6 ? "current_star" : ""}
-              style={{ display: num >= 6 ? "block" : "none" }}
+              className={num === 6 ? "star" : ""}
             />
             <Image
-              src={Assets?.intro?.sprites[14]}
+              src={
+                num >= 7
+                  ? Assets?.intro?.sprites[14]
+                  : Assets?.intro?.sprites[13]
+              }
               alt="txt"
               id="stars"
-              className={num === 7 ? "current_star" : ""}
-              style={{ display: num >= 7 ? "block" : "none" }}
+              className={num === 7 ? "star" : ""}
             />
           </div>
         </div>
