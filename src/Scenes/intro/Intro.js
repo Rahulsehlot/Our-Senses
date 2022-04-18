@@ -8,14 +8,7 @@ import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
 import IntroMap from "../Scene2-Body/Scene2Map";
 
-export default function Intro({
-  setshuffle_g1,
-  shuffle_g1,
-  shuffle_g2,
-  setshuffle_g2,
-  setshuffle_g3,
-  shuffle_g3,
-}) {
+export default function Intro() {
   const { Loading } = useLoadAsset(IntroMap);
   const { Bg, setBg } = useContext(BGContext);
   const [playBtnHide, SetplayBtnHide] = useState(0);
@@ -28,16 +21,6 @@ export default function Intro({
   useEffect(() => {
     setBg(intro?.Bg);
   }, []);
-
-  useEffect(() => {
-    const shuffle_1 = Math.floor(1 + Math.random() * (2 - 1));
-    const shuffle_2 = 1 + Math.floor(Math.random() * (3 - 1));
-    const s2 = IntroMap?.shuffle3[shuffle_1];
-    setshuffle_g3(s2);
-    const s1 = IntroMap?.shuffle1[shuffle_1];
-    setshuffle_g1(s1);
-    setshuffle_g2(IntroMap?.shuffle2[shuffle_2]);
-  }, [shuffle_g1, shuffle_g2, shuffle_g3]);
 
   return (
     <Scenes

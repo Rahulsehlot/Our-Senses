@@ -1,6 +1,6 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_och_pl1/images/";
+const soundUrl = "ee02_ow_och_pl1/sounds/";
+const lottieUrl = "ee02_ow_och_pl1/lottie/";
 
 const IntroMap = {
   id: "Scene5",

@@ -21,14 +21,11 @@ export default function Game2({
   G2answer,
   count,
   setCount,
-  setshuffle_g3,
-  shuffle_g3,
 }) {
   const { Loading } = useLoadAsset(IntroMap);
 
   const { Bg, setBg } = useContext(BGContext);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const [G2QiD, setG2QiD] = useState();
   const [G2Sound, setG2Sound] = useState(0);
   const [answer, setAnswer] = useState(0);
@@ -39,12 +36,28 @@ export default function Game2({
   const [option2Wrng, setoption2Wrng] = useState(0);
   const [grey, setGrey] = useState(false);
 
-  const [x, setx] = useState("");
-  const [i, seti] = useState(0);
-
   const { intro } = Assets;
 
   const Ref = useRef(null);
+  const transRef = useRef(null);
+  const [isLoading, setisLoading] = useState(true);
+
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 1500);
+  }, []);
 
   const stop_all_sounds = () => {
     Assets?.Scene22?.sounds?.map((v) => v?.stop());
@@ -53,12 +66,6 @@ export default function Game2({
   useEffect(() => {
     setBg(Assets?.Scene22?.Bg);
     setG2Sound(flowCount);
-  }, []);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      // setLoading(false);
-    }, 1000);
   }, []);
 
   //Placing on either screens
@@ -75,18 +82,20 @@ export default function Game2({
     setG2QiD(G2Q1);
     setAnswer(G2A1);
     setWrong(G2W1);
-
-    setx(IntroMap?.[shuffle_g3]);
-    console.log(i);
-    console.log(x[i]);
-
-    console.log(shuffle_g3);
-    const y = shuffle_g3;
-    console.log(y?.sprites);
   }, []);
 
   const playCorrectSound = () => {
     counter(count, setCount);
+    if (Assets?.Scene22) {
+      setplaying(true);
+      Assets?.Scene22?.sounds[4]?.play();
+      Assets?.Scene22?.sounds[4]?.on("end", () => {
+        setplaying(false);
+      });
+    }
+  };
+
+  const playWrongSound = () => {
     if (Assets?.Scene22) {
       setplaying(true);
       Assets?.Scene22?.sounds[5]?.play();
@@ -96,19 +105,8 @@ export default function Game2({
     }
   };
 
-  const playWrongSound = () => {
-    if (Assets?.Scene22) {
-      setplaying(true);
-      Assets?.Scene22?.sounds[6]?.play();
-      Assets?.Scene22?.sounds[6]?.on("end", () => {
-        setplaying(false);
-      });
-    }
-  };
-
   const Option1 = () => {
-    if (answer < 11) {
-      console.log(answer);
+    if (answer < 10) {
       if (playing === false) {
         Assets?.Scene22?.sounds[flowCount]?.stop();
         playCorrectSound();
@@ -116,8 +114,7 @@ export default function Game2({
           setoption1Verify(1);
           // const soundEnd = () => {
           const item = Game2Map1?.sprites[answer + 1]?.split("_");
-          const item1 = item[2].replace(".svg", "");
-          console.log(item1);
+          const item1 = item[5].replace(".svg", "");
           const timeout = setTimeout(() => {
             setSceneId("/" + item1 + "_Game2");
           }, 1000);
@@ -149,15 +146,17 @@ export default function Game2({
   const [replayId, setreplayId] = useState(null);
 
   useEffect(() => {
-    if (Assets?.Scene22) {
-      setGrey(true);
-      setreplayId(Assets?.Scene22?.sounds[flowCount]);
-      Assets?.Scene22?.sounds[flowCount]?.play();
-      Assets?.Scene22?.sounds[flowCount]?.on("end", () => {
-        setGrey(false);
-      });
+    if (isLoading === false) {
+      if (Assets?.Scene22) {
+        setGrey(true);
+        setreplayId(Assets?.Scene22?.sounds[flowCount]);
+        Assets?.Scene22?.sounds[flowCount]?.play();
+        Assets?.Scene22?.sounds[flowCount]?.on("end", () => {
+          setGrey(false);
+        });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -166,14 +165,14 @@ export default function Game2({
   }, [option2Wrng]);
 
   const replayBtn = () => {
-    Assets?.Scene22?.sounds[flowCount]?.stop();
-
-    if (Assets?.Scene22) {
-      setGrey(true);
-      replayId.play();
-      replayId?.on("end", () => {
-        setGrey(false);
-      });
+    if (grey === false) {
+      if (Assets?.Scene22) {
+        setGrey(true);
+        replayId.play();
+        replayId?.on("end", () => {
+          setGrey(false);
+        });
+      }
     }
   };
 
@@ -182,6 +181,17 @@ export default function Game2({
       Bg={Bg}
       sprites={
         <>
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
+
           {/* Title */}
           <Image
             src={Assets?.Scene22?.sprites[G2QiD]}
@@ -191,7 +201,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.Scene22?.sprites[20]}
+            src={Assets?.Scene22?.sprites[19]}
             alt="txt"
             id="fadeup"
             className="Option1BG"
@@ -201,7 +211,7 @@ export default function Game2({
           />
 
           <Image
-            src={Assets?.Scene22?.sprites[20]}
+            src={Assets?.Scene22?.sprites[19]}
             alt="txt"
             id="fadeup"
             className="Option2BG"
@@ -230,7 +240,7 @@ export default function Game2({
           </div>
 
           <Image
-            src={Assets?.Scene22?.sprites[21]}
+            src={Assets?.Scene22?.sprites[20]}
             alt="txt"
             id="fadeup"
             className="Option1_Button"
@@ -258,7 +268,7 @@ export default function Game2({
             />
           </div>
           <Image
-            src={Assets?.Scene22?.sprites[22]}
+            src={Assets?.Scene22?.sprites[21]}
             alt="txt"
             id="fadeup"
             className="Option2_Button"
@@ -279,7 +289,7 @@ export default function Game2({
             }}
           >
             <Image
-              src={Assets?.Scene22?.sprites[23]}
+              src={Assets?.Scene22?.sprites[18]}
               alt="txt"
               id="fadeup"
               onClick={replayBtn}

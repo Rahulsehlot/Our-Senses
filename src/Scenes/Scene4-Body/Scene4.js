@@ -12,14 +12,12 @@ import Game1Map2 from "../Game1Screen/Game1Map2";
 
 function get_tracer_obj(type) {
   switch (type) {
-    case "lion":
+    case "Game1Map2":
       return Game1Map1;
       break;
-    case "dog":
+    case "Game1Map2":
       return Game1Map2;
       break;
-    default:
-      return "";
   }
 }
 
@@ -31,10 +29,10 @@ export default function Scene4({ nextload }) {
   const [highlightear, sethighlightear] = useState(0);
   const [highlighttongue, sethighlighttongue] = useState(0);
   const [highlightskin, sethighlightskin] = useState(0);
+  const [isLoading, setisLoading] = useState(true);
 
   const { Bg, setBg } = useContext(BGContext);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
@@ -44,13 +42,15 @@ export default function Scene4({ nextload }) {
   };
 
   useEffect(() => {
-    if (Assets?.Scene4) {
-      Assets?.Scene4?.sounds[0]?.play();
-      Assets?.Scene4?.sounds[0].on("end", () => {
-        setSceneId("/Game1_1");
-      });
+    if (isLoading === false) {
+      if (Assets?.Scene4) {
+        Assets?.Scene4?.sounds[0]?.play();
+        Assets?.Scene4?.sounds[0].on("end", () => {
+          setSceneId("/Game1_1");
+        });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -61,7 +61,7 @@ export default function Scene4({ nextload }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Scene2?.lottie[0],
+          animationData: Assets?.intro?.lottie[0],
         });
       } catch (err) {
         console.log(err);
@@ -90,20 +90,20 @@ export default function Scene4({ nextload }) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       sethighlighteye(1);
-    }, 4500);
+    }, 6500);
 
     const timeout1 = setTimeout(() => {
       sethighlightnose(1);
-    }, 5500);
+    }, 7500);
     const timeout2 = setTimeout(() => {
       sethighlightear(1);
-    }, 7500);
+    }, 9500);
     const timeout3 = setTimeout(() => {
       sethighlighttongue(1);
-    }, 6500);
+    }, 8500);
     const timeout4 = setTimeout(() => {
       sethighlightskin(1);
-    }, 8500);
+    }, 10500);
   }, [
     highlighteye,
     highlightear,
@@ -112,11 +112,41 @@ export default function Scene4({ nextload }) {
     highlighttongue,
   ]);
 
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 1500);
+  }, []);
+
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
+
           {/* Title */}
           <Image
             src={Assets?.Scene4?.sprites[0]}
@@ -125,7 +155,7 @@ export default function Scene4({ nextload }) {
             className="senses_smell_btn"
             style={{
               ...btn_style,
-              border: highlightnose == 1 ? "8px solid yellow" : "",
+              border: highlightnose == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -145,7 +175,7 @@ export default function Scene4({ nextload }) {
             className="senses_taste_btn"
             style={{
               ...btn_style,
-              border: highlighttongue == 1 ? "8px solid yellow" : "",
+              border: highlighttongue == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -167,7 +197,7 @@ export default function Scene4({ nextload }) {
             className="senses_hearing_btn"
             style={{
               ...btn_style,
-              border: highlightear == 1 ? "8px solid yellow" : "",
+              border: highlightear == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -187,7 +217,7 @@ export default function Scene4({ nextload }) {
             className="senses_touch_btn"
             style={{
               ...btn_style,
-              border: highlightskin == 1 ? "8px solid yellow" : "",
+              border: highlightskin == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
             }}
           />
@@ -207,7 +237,7 @@ export default function Scene4({ nextload }) {
             className="senses_vision_btn"
             style={{
               ...btn_style,
-              border: highlighteye == 1 ? "8px solid yellow" : "",
+              border: highlighteye == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
             }}
           />

@@ -127,61 +127,6 @@ export default function Star({ num }) {
               style={{ display: num >= 7 ? "block" : "none" }}
             />
           </div>
-
-          {/* <div id="star_wrap" style={{ position: "fixed", right: "0%" }}>
-            <div id="star_wrap1" style={{ position: "fixed", right: "0%" }}>
-              <img
-                id="stars"
-                className={num === 1 ? "current_star" : ""}
-                alt=""
-                src={
-                  num >= 1
-                    ? `data:image/svg+xml;utf8,${encodeURIComponent(Gold)}`
-                    : `data:image/svg+xml;utf8,${encodeURIComponent(Grey)}`
-                }
-              />
-              <img
-                id="stars"
-                className={num === 2 ? "current_star" : ""}
-                alt=""
-                src={
-                  num >= 2
-                    ? `data:image/svg+xml;utf8,${encodeURIComponent(Gold)}`
-                    : `data:image/svg+xml;utf8,${encodeURIComponent(Grey)}`
-                }
-              />
-              <img
-                id="stars"
-                className={num === 3 ? "current_star" : ""}
-                alt=""
-                src={
-                  num >= 3
-                    ? `data:image/svg+xml;utf8,${encodeURIComponent(Gold)}`
-                    : `data:image/svg+xml;utf8,${encodeURIComponent(Grey)}`
-                }
-              />
-              <img
-                id="stars"
-                className={num === 4 ? "current_star" : ""}
-                alt=""
-                src={
-                  num >= 4
-                    ? `data:image/svg+xml;utf8,${encodeURIComponent(Gold)}`
-                    : `data:image/svg+xml;utf8,${encodeURIComponent(Grey)}`
-                }
-              />
-              <img
-                id="stars"
-                className={num === 5 ? "current_star" : ""}
-                alt=""
-                src={
-                  num >= 5
-                    ? `data:image/svg+xml;utf8,${encodeURIComponent(Gold)}`
-                    : `data:image/svg+xml;utf8,${encodeURIComponent(Grey)}`
-                }
-              />
-            </div>
-          </div> */}
         </div>
       )}
     </>

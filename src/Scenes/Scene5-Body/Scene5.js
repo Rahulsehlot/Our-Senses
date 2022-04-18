@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
@@ -10,7 +10,6 @@ import { BGContext } from "../../contexts/Background";
 import Game2Map1 from "../Game2Screen/Game2AssetMap";
 import Game2Map2 from "../Game2Screen/Game2AssetMap1";
 import Game2Map3 from "../Game2Screen/Game2AssetMap2";
-import Game2Map4 from "../Game2Screen/Game2AssetMap3";
 
 function get_tracer_obj(type) {
   switch (type) {
@@ -23,9 +22,6 @@ function get_tracer_obj(type) {
     case "horse":
       return Game2Map3;
       break;
-    case "rabbit":
-      return Game2Map4;
-      break;
     default:
       return "";
   }
@@ -34,30 +30,49 @@ function get_tracer_obj(type) {
 export default function Scene5({ nextload, setCount }) {
   const { Bg, setBg } = useContext(BGContext);
   const { Loading } = useLoadAsset(nextload);
+  const [isLoading, setisLoading] = useState(true);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
-  console.log(Assets);
 
   const Ref = useRef(null);
 
   const stop_all_sounds = () => {
     Assets?.Scene5?.sounds?.map((v) => v?.stop());
   };
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, []);
 
   useEffect(() => {
     setCount(0);
-    if (Assets?.Scene5 && !Loading) {
-      Assets?.Scene5?.sounds[0]?.play();
-      Assets?.Scene5?.sounds[0].on("end", () => {
-        setSceneId("/eye_Game2");
-      });
+    if (isLoading === false) {
+      if (Assets?.Scene5) {
+        Assets?.Scene5?.sounds[0]?.play();
+        Assets?.Scene5?.sounds[0].on("end", () => {
+          setSceneId("/nose_Game2");
+        });
+      }
     }
-  }, [Assets, Loading, isLoading]);
+  }, [isLoading]);
 
   useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
+    if (Assets && Ref.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -65,17 +80,17 @@ export default function Scene5({ nextload, setCount }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Scene2?.lottie[0],
+          animationData: Assets?.intro?.lottie[0],
         });
       } catch (err) {
         console.log(err);
       }
     }
-  }, [Assets, Loading]);
+  }, []);
 
   const forward = () => {
     stop_all_sounds();
-    setSceneId("/eye_Game2");
+    setSceneId("/nose_Game2");
   };
 
   return (
@@ -83,6 +98,17 @@ export default function Scene5({ nextload, setCount }) {
       Bg={Bg}
       sprites={
         <>
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
+
           {/* Title */}
 
           <div ref={Ref} className="Scene5_lottie_container"></div>

@@ -25,8 +25,8 @@ function App() {
   const [Load, setLoad] = useState(true);
   const [next, setNext] = useState(0);
   const [counter, setCounter] = useState(6);
-  const [G2Ans, setG2Ans] = useState(5);
-  const [G2Wrng, setG2Wrng] = useState(12);
+  const [G2Ans, setG2Ans] = useState(4);
+  const [G2Wrng, setG2Wrng] = useState(11);
   const [mute, setmute] = useState(false);
   const [BG_sound, setBG_sound] = useState(null);
   const [icon1, seticon1] = useState(null);
@@ -35,9 +35,17 @@ function App() {
   const [count, setCount] = useState(0);
   const [shuffle_g1, setshuffle_g1] = useState("");
   const [shuffle_g2, setshuffle_g2] = useState("");
-  const [shuffle_g3, setshuffle_g3] = useState("");
 
   const [playing, setplaying] = useState(false);
+
+  useEffect(() => {
+    const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
+    const shuffle_2 = Math.floor(0 + Math.random() * (3 - 0));
+    const s1 = IntroMap?.shuffle1[shuffle_1];
+    setshuffle_g1(s1);
+    setshuffle_g2(IntroMap?.shuffle2[shuffle_2]);
+    console.log(shuffle_2);
+  }, [shuffle_g1, shuffle_g2]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,9 +55,9 @@ function App() {
   }, []);
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("internal/sounds/bg_sound.mp3"));
-    seticon1(await LoadImage("internal/images/sound.svg"));
-    seticon2(await LoadImage("internal/images/nosound.svg"));
+    setBG_sound(await AudioPlayer2("ee02_ow_och_pl1/sounds/bg_sound.mp3"));
+    seticon1(await LoadImage("ee02_ow_och_pl1/images/sound.svg"));
+    seticon2(await LoadImage("ee02_ow_och_pl1/images/nosound.svg"));
   };
 
   // useEffect(() => {
@@ -100,14 +108,7 @@ function App() {
         />
       )}{" "}
       <Router sceneId="/">
-        <Intro
-          shuffle_g1={shuffle_g1}
-          setshuffle_g1={setshuffle_g1}
-          shuffle_g2={shuffle_g2}
-          setshuffle_g2={setshuffle_g2}
-          setshuffle_g3={setshuffle_g3}
-          shuffle_g3={shuffle_g3}
-        />
+        <Intro />
       </Router>
       <Router sceneId="/Scene2">
         <Scene2 scenename={"Scene2"} />
@@ -204,22 +205,6 @@ function App() {
           setNext={setNext}
           setG2Wrng={setG2Wrng}
           setCount={setCount}
-          BG_sound={BG_sound}
-        />
-      </Router>
-      <Router sceneId="/eye_Game2">
-        <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Eye"}
-          flowCount={0}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g2}
-          setshuffle_g3={setshuffle_g3}
-          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/nose_Game2">
@@ -229,12 +214,10 @@ function App() {
           G2Wrng={G2Wrng}
           setG2Wrng={setG2Wrng}
           G2answer={"Nose"}
-          flowCount={1}
+          flowCount={0}
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
-          setshuffle_g3={setshuffle_g3}
-          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/ear_Game2">
@@ -244,12 +227,10 @@ function App() {
           G2Wrng={G2Wrng}
           setG2Wrng={setG2Wrng}
           G2answer={"Ear"}
-          flowCount={2}
+          flowCount={1}
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
-          setshuffle_g3={setshuffle_g3}
-          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/tongue_Game2">
@@ -259,12 +240,10 @@ function App() {
           G2Wrng={G2Wrng}
           setG2Wrng={setG2Wrng}
           G2answer={"Tongue"}
-          flowCount={3}
+          flowCount={2}
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
-          setshuffle_g3={setshuffle_g3}
-          shuffle_g3={shuffle_g3}
         />
       </Router>
       <Router sceneId="/skin_Game2">
@@ -274,12 +253,10 @@ function App() {
           G2Wrng={G2Wrng}
           setG2Wrng={setG2Wrng}
           G2answer={"Skin"}
-          flowCount={4}
+          flowCount={3}
           count={count}
           setCount={setCount}
           nextload={shuffle_g2}
-          setshuffle_g3={setshuffle_g3}
-          shuffle_g3={shuffle_g3}
         />
       </Router>
       {/* <Router sceneId="/Game1">

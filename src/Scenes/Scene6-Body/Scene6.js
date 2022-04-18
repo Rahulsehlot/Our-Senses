@@ -15,50 +15,63 @@ export default function Scene6({
   setNext,
   setG2Wrng,
   setCount,
-  BG_sound,
 }) {
   const { Bg, setBg } = useContext(BGContext);
+  const [isLoading, setisLoading] = useState(true);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const [playing, setplaying] = useState(false);
 
   const { intro } = Assets;
 
   const Ref = useRef(null);
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, []);
 
   useEffect(() => {
     setBg(Assets?.Scene2?.Bg);
     setCount(0);
-    if (Assets?.Scene2) {
-      setplaying(true);
-      Assets?.Scene2?.sounds[0]?.play();
-      Assets?.Scene2?.sounds[0].on("end", () => {
-        Assets?.Scene2?.sounds[3]?.play();
-        Assets?.Scene2?.sounds[3]?.volume(0.1);
-        Assets?.Scene2?.sounds[3].on("end", () => {
+    if (isLoading === false) {
+      if (Assets?.Scene2) {
+        setplaying(true);
+        Assets?.Scene2?.sounds[0]?.play();
+        Assets?.Scene2?.sounds[0].on("end", () => {
           Assets?.Scene2?.sounds[2]?.play();
+          Assets?.Scene2?.sounds[2]?.volume(0.1);
           Assets?.Scene2?.sounds[2].on("end", () => {
-            setplaying(false);
+            Assets?.Scene2?.sounds[1]?.play();
+            Assets?.Scene2?.sounds[1].on("end", () => {
+              setplaying(false);
+            });
           });
         });
-      });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   const RetryGame = () => {
     if (playing === false) {
-      if (Assets?.Scene2) {
-        Assets?.Scene2?.sounds[1].play();
-        Assets?.Scene2?.sounds[1].on("end", () => {
-          setSceneId("/");
-          setCounter(6);
-          setG2Ans(5);
-          setG2Wrng(12);
-          setNext(0);
-          BG_sound?.mute(true);
-        });
-      }
+      setSceneId("/");
+      setCounter(6);
+      setG2Ans(5);
+      setG2Wrng(12);
+      setNext(0);
     }
   };
 
@@ -77,13 +90,24 @@ export default function Scene6({
         console.log(err);
       }
     }
-  }, [Assets]);
+  }, []);
 
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
+
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"

@@ -1,9 +1,11 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee02_ow_och_pl1/images/";
+const soundUrl = "ee02_ow_och_pl1/sounds/";
+const lottieUrl = "ee02_ow_och_pl1/lottie/";
 
 const Game1Map1 = {
   id: "Game2",
+
+  Bg: `${imgUrl}texture_bg_light.svg`,
 
   sprites: [
     `${imgUrl}organs_button/nose_button_icon.svg`,
@@ -20,10 +22,8 @@ const Game1Map1 = {
     `${imgUrl}organs_images/city_eye.svg`,
     `${imgUrl}organs_images/perfume_nose.svg`,
     `${imgUrl}audio_replay_button.svg`,
-    `${imgUrl}hand_icon.svg`,
     `${imgUrl}button_icon_green_highlight.svg`,
     `${imgUrl}button_icon_red_highlight.svg`,
-    `${imgUrl}hand_icon.svg`,
   ],
 
   sounds: [
@@ -36,14 +36,9 @@ const Game1Map1 = {
     `${soundUrl}12.mp3`,
     `${soundUrl}correct_answer_game2.mp3`,
     `${soundUrl}wrong_answer_game2.mp3`,
-    `${soundUrl}countdown.mp3`,
   ],
 
   lottie: [],
-
-  select: ["Nose", "Tongue", "Ear", "Touch", "Eye"],
-
-  hint: ["Eyes", "Nose", "Ears", "Tongue", "Skin"],
 };
 
 export default Game1Map1;

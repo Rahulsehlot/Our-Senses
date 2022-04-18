@@ -1,6 +1,12 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+import Game1Map1 from "../Game1Screen/Game1Map";
+import Game1Map2 from "../Game1Screen/Game1Map2";
+import Game2Map1 from "../Game2Screen/Game2AssetMap";
+import Game2Map2 from "../Game2Screen/Game2AssetMap1";
+import Game2Map3 from "../Game2Screen/Game2AssetMap2";
+
+const imgUrl = "ee02_ow_och_pl1/images/";
+const soundUrl = "ee02_ow_och_pl1/sounds/";
+const lottieUrl = "ee02_ow_och_pl1/lottie/";
 
 const IntroMap = {
   id: "intro",
@@ -27,7 +33,11 @@ const IntroMap = {
 
   sounds: [`${soundUrl}intro_sound.mp3`],
 
-  lottie: [],
+  lottie: [`${lottieUrl}main_character.json`, `${lottieUrl}1transition.json`],
+
+  shuffle1: [Game1Map1, Game1Map2],
+
+  shuffle2: [Game2Map1, Game2Map2, Game2Map3],
 };
 
 export default IntroMap;
