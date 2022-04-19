@@ -35,6 +35,8 @@ export default function Game2({
   const [option1Verify, setoption1Verify] = useState(0);
   const [option2Wrng, setoption2Wrng] = useState(0);
   const [grey, setGrey] = useState(false);
+  const [clicked, setClicked] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
   const { intro } = Assets;
 
@@ -110,6 +112,7 @@ export default function Game2({
   const Option1 = () => {
     if (answer < 10) {
       if (playing === false) {
+        setClicked(1);
         Assets?.Scene22?.sounds[flowCount]?.stop();
         playCorrectSound();
         if (playing === false) {
@@ -141,6 +144,7 @@ export default function Game2({
 
   const Option2 = () => {
     if (playing === false) {
+      setClicked(1);
       playWrongSound();
       setoption2Wrng(1);
     }
@@ -177,6 +181,24 @@ export default function Game2({
       }
     }
   };
+
+  useEffect(() => {
+    if (clicked === 1) {
+      replayId.stop();
+    }
+
+    if (seconds > 15) {
+      setSeconds(0);
+      replayId.play();
+    }
+  });
+  useEffect(() => {
+    if (isLoading === false) {
+      const interval = setInterval(() => {
+        setSeconds((seconds) => seconds + 1);
+      }, 1000);
+    }
+  }, [isLoading]);
 
   return (
     <Scenes
