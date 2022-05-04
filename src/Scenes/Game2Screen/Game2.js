@@ -84,8 +84,6 @@ export default function Game2({
     setG2QiD(G2Q1);
     setAnswer(G2A1);
     setWrong(G2W1);
-    console.log(G2A1, "**", G2W1);
-    console.log(answer, "****", wrong);
   }, []);
 
   const playCorrectSound = () => {
@@ -251,7 +249,7 @@ export default function Game2({
             onClick={Option1}
             className="Option1"
             style={{
-              left: number === 1 ? "8.5%" : "51.5%",
+              left: number === 1 ? "19.25%" : "51.20%",
               cursor: playing === false ? "pointer" : "",
             }}
           >
@@ -270,7 +268,7 @@ export default function Game2({
             className="Option1_Button"
             style={{
               display: option1Verify === 1 ? "block" : "none",
-              left: number === 1 ? "7.4%" : "50.3%",
+              left: number === 1 ? "18.6%" : "50.6%",
             }}
           />
 
@@ -279,7 +277,7 @@ export default function Game2({
             onClick={Option2}
             className="Option2"
             style={{
-              left: number === 1 ? "51.5%" : "8.5%",
+              left: number === 1 ? "51.20%" : "19.25%",
               cursor: playing === false ? "pointer" : "",
             }}
           >
@@ -298,7 +296,7 @@ export default function Game2({
             className="Option2_Button"
             style={{
               display: option2Wrng === 1 ? "block" : "none",
-              left: number === 1 ? "50.5%" : "7.4%",
+              left: number === 1 ? "50.6%" : "18.6%",
             }}
           />
 

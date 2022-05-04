@@ -70,21 +70,23 @@ export default function Scene4({ nextload }) {
   }, []);
 
   const btn_style = {
-    width: "16%",
+    width: "13%",
     position: "fixed",
-    bottom: "8%",
+    bottom: "4.5%",
     borderradius: "100%",
     border: "none",
   };
 
   const txt_style = {
     position: "fixed",
-    bottom: "44%",
+    bottom: "33.5%",
   };
 
   const forward = () => {
-    stop_all_sounds();
-    setSceneId("/Game1_1");
+    const timeout = setTimeout(() => {
+      stop_all_sounds();
+      setSceneId("/Game1_1");
+    }, 1000);
   };
 
   useEffect(() => {
@@ -258,7 +260,7 @@ export default function Scene4({ nextload }) {
             id="fadeup"
             className="next"
             onClick={forward}
-            style={{ cursor: "pointer", bottom: "1%", right: "0.3%" }}
+            style={{ cursor: "pointer", bottom: "1%" }}
           />
         </>
       }

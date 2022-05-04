@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.intro_Loading_screen{
+  animation: FadeUpnDown 3s alternate infinite;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vw;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes FadeUpnDown {
+  from{opacity: 0;}
+  to{opacity:1}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+#loadingIndicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  animation: fade infinite 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes fade {
+  0%,
+  100% {
+      opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+      opacity: 1;
   }
+}
+
+.playerPreloader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #64adc5; */
+}
+
+.playerPreloadCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  border-top: 10px solid #ffffff;
+  box-sizing: border-box;
+  animation: preloadspin 1s linear infinite;
+}
+
+@keyframes preloadspin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+#landscapeMode {
+  position: fixed;
+  top: 50%;
+  color: #fff;
+  width: 100%;
+  z-index: 1000;
+  animation: fade infinite 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  text-align: center;
 }

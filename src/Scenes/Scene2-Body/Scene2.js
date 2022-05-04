@@ -97,8 +97,10 @@ export default function Scene2({ scenename }) {
   }, [Assets]);
 
   const forward = () => {
-    stop_all_sounds();
-    setSceneId("/Eyes_Scene3");
+    const timeout = setTimeout(() => {
+      stop_all_sounds();
+      setSceneId("/Eyes_Scene3");
+    }, 1000);
   };
 
   const transRef = useRef(null);
@@ -146,6 +148,7 @@ export default function Scene2({ scenename }) {
             style={{
               border: highlightnose == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
+              right: "16%",
             }}
           />
 
@@ -164,6 +167,7 @@ export default function Scene2({ scenename }) {
             style={{
               border: highlighttongue == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
+              left: "16%",
             }}
           />
           <Image
@@ -181,6 +185,7 @@ export default function Scene2({ scenename }) {
             style={{
               border: highlightear == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
+              right: "16%",
             }}
           />
 
@@ -205,6 +210,7 @@ export default function Scene2({ scenename }) {
             style={{
               border: highlightskin == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
+              left: "16%",
             }}
           />
 
@@ -222,7 +228,7 @@ export default function Scene2({ scenename }) {
             className="senses_vision_img"
             style={{
               border: highlighteye == 1 ? "0.5vw solid yellow" : "",
-              top: "3%",
+              top: "25%",
               borderRadius: "100%",
             }}
           />

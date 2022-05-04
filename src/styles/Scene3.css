@@ -1,7 +1,7 @@
 .Blue_layyer_wrapper {
-  height: 100%;
+  height: 78%;
   position: fixed;
-  left: -2%;
+  left: 9.5%;
   bottom: 0%;
   z-index: 0;
 }
@@ -9,86 +9,79 @@
 .senses_scene3_txt {
   height: 100%;
   width: 50%;
-  z-index: 9;}
+  z-index: 9;
+}
 
 .Eyes_positionProp1 {
-  right: 20%;
-  top: 23%;
-}
+  right: 28%;
+  top: 35%;}
 
 .Nose_positionProp1 {
-  right: 35%;
-  top: 25%;
+  right: 40%;
+  top: 40%;
 }
 .Nose_positionProp2 {
-  right: 10%;
-  top: 25%;
+  right: 20%;
+  top: 40%;
 }
 
 .Tongue_positionProp1 {
   right: 40%;
-  top: 10%;
-  z-index: 1;
-}
+  top: 27%;
+  z-index: 1;}
 .Tongue_positionProp2 {
-  right: 24%;
-  top: 42%;
-  z-index: 3;
-}
+  right: 28%;
+  top: 56%;
+  z-index: 3;}
 .Tongue_positionProp3 {
-  right: 8%;
-  top: 10%;
-  z-index: 1;
-}
+  right: 17%;
+  top: 27%;
+  z-index: 1;}
 
 .Ears_positionProp1 {
   right: 40%;
-  top: 10%;
-  z-index: 1;
-}
+  top: 27%;
+  z-index: 1;}
 .Ears_positionProp2 {
-  right: 24%;
-  top: 42%;
-  z-index: 3;
-}
+  right: 28%;
+  top: 56%;
+  z-index: 3;}
 .Ears_positionProp3 {
-  right: 8%;
-  top: 10%;
-  z-index: 1;
-}
+  right: 17%;
+  top: 27%;
+  z-index: 1;}
 
 .Skin_positionProp1 {
-  right: 35%;
-  top: 25%;
+  right: 40%;
+  top: 40%;
 }
 .Skin_positionProp2 {
-  right: 10%;
-  top: 25%;
+  right: 20%;
+  top: 40%;
 }
 
 .back {
-  position: fixed;
-  left: 2%;
-  bottom: 5%;
+  bottom: 3%;
+  left: 12%;
+  width: 4%;
+  position: absolute;
   z-index: 5;
-  width: 6%;
 }
 
 .next {
-  bottom: 4%;
-  right: 1%;
-  width: 6%;
-  position: fixed;
+  bottom: 3%;
+  right: 12%;
+  width: 4%;
+  position: absolute;
   z-index: 5;
 }
 
 
 .organ-div{
   display: flex;
-    height: 13%;
-    justify-content: center;
-    left: 0;
-    position: fixed;
-    top: 57%;
-    width: 28.3%;
-}
+  height: 13%;
+  justify-content: center;
+  left: 211px;
+  position: fixed;
+  top: 62%;
+  width: 22%;}

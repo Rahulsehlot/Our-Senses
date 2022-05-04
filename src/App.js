@@ -19,9 +19,9 @@ import Game1Map2 from "./Scenes/Game1Screen/Game1Map2";
 import { SceneContext } from "./contexts/SceneContext";
 
 function App() {
-  const { SceneId, Assets } = useContext(SceneContext);
-
-  const { Loading } = useLoadAsset(IntroMap);
+  const { SceneId, Assets, setheight } = useContext(SceneContext);
+  const [LandScape, setLandScape] = useState(false);
+  const Asset = useLoadAsset(IntroMap);
   const [Load, setLoad] = useState(true);
   const [next, setNext] = useState(0);
   const [counter, setCounter] = useState(6);
@@ -38,13 +38,22 @@ function App() {
 
   const [playing, setplaying] = useState(false);
 
+  const resizer = () => {
+    setLandScape(window.innerWidth / window.innerHeight < 1.0);
+    if (window.innerWidth <= 1264) {
+      setheight("87%");
+    } else {
+      setheight("73%");
+    }
+  };
+  console.log(LandScape);
+
   useEffect(() => {
     const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
     const shuffle_2 = Math.floor(0 + Math.random() * (3 - 0));
     const s1 = IntroMap?.shuffle1[shuffle_1];
     setshuffle_g1(s1);
     setshuffle_g2(IntroMap?.shuffle2[shuffle_2]);
-    console.log(shuffle_2);
   }, [shuffle_g1, shuffle_g2]);
 
   useEffect(() => {
@@ -59,12 +68,6 @@ function App() {
     seticon1(await LoadImage("ee02_ow_och_pl1/images/sound.svg"));
     seticon2(await LoadImage("ee02_ow_och_pl1/images/nosound.svg"));
   };
-
-  // useEffect(() => {
-  //   if (BG_sound !== null) {
-  //     BG_sound?.play();
-  //   }
-  // }, [BG_sound]);
 
   useEffect(() => {
     if (BG_sound !== null && SceneId !== "/" && playing === false) {
@@ -83,14 +86,40 @@ function App() {
     }
   }, [mute]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 3000);
+
+    loadAudio();
+
+    window.addEventListener("resize", resizer);
+
+    return () => {
+      window.removeEventListener("resize", resizer);
+    };
+  }, []);
+
   const toggleMute = () => {
     setmute(!mute);
   };
 
-  if (Load) return <div className="intro_Loading_screen">Loading....</div>;
+  if (LandScape) {
+    return <h1 id="landscapeMode">Rotate your device</h1>;
+  }
+
+  if (Load && !Asset.Loading)
+    return (
+      <div className="loadingIndicator">
+        <div className="vendorWrapper"></div>
+        <div className="playerPreloader">
+          <div className="playerPreloadCircle"></div>
+        </div>
+      </div>
+    );
 
   return (
-    <GameContainer>
+    <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
       {!mute && SceneId !== "/" && (
         <img
           src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
@@ -259,28 +288,6 @@ function App() {
           nextload={shuffle_g2}
         />
       </Router>
-      {/* <Router sceneId="/Game1">
-        <Game1
-          counter={counter}
-          setCounter={setCounter}
-          scenename={"Scene2"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={G1ImgID}
-          setG1ImgID={setG1ImgID}
-        />
-      </Router>
-      <Router sceneId="/Game1_Helper">
-        <Game1_Helper
-          counter={counter}
-          setCounter={setCounter}
-          scenename={"Scene2"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={G1ImgID}
-          setG1ImgID={setG1ImgID}
-        />
-      </Router> */}
       <Router sceneId="/Game1_1">
         <Game1
           nextScene={"/Game1_2"}

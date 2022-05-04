@@ -127,8 +127,8 @@ export default function Scene3Organs({
             id="fadeup"
             className="senses_vision_img"
             style={{
-              top: "20%",
-              left: "6.5%",
+              top: "34%",
+              left: "15.5%",
             }}
           />
 
@@ -137,7 +137,7 @@ export default function Scene3Organs({
             alt="txt"
             id="fadeup"
             className={position + "Prop1"}
-            style={{ position: "fixed", width: "20%" }}
+            style={{ position: "fixed", width: "16%" }}
           />
 
           <Image
@@ -145,14 +145,14 @@ export default function Scene3Organs({
             alt="txt"
             id="fadeup"
             className={position + "Prop2"}
-            style={{ position: "fixed", width: "20%" }}
+            style={{ position: "fixed", width: "16%" }}
           />
           <Image
             src={Assets?.Scene3?.sprites[PropId[2]]}
             alt="txt"
             id="fadeup"
             className={position + "Prop3"}
-            style={{ position: "fixed", width: "20%" }}
+            style={{ position: "fixed", width: "16%" }}
           />
 
           <div className="organ-div">

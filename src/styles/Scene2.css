@@ -9,70 +9,83 @@
 .intro_lottie_container {
   position: fixed;
   bottom: 0%;
-  left: 37.5%;
+  left: 44.5%;
   z-index: 0;
-  width: 30%;
-  height: 55%;
+  width: 11%;
+  height: 40%;
 }
 
 .Scene5_lottie_container {
-  left:10%;position:fixed;top:12%;width:23%}
+  left: 15%;
+  position: fixed;
+  top: 36%;
+  width: 16%;}
 
 .Game2_vision_img {
-  position:fixed;right:27.5%;top:5%;width:20%;z-index:1}
+  position: fixed;
+  right: 36.5%;
+  top: 27%;
+  width: 15%;
+  z-index: 1}
 
 .Game2_Newspaper_img {
-  bottom:0;position:fixed;right:49%;width:20%}
+  bottom: 0;
+  position: fixed;
+  right: 54%;
+  width: 16%;}
 
 .Game2_sun_img {
-  bottom:2%;position:fixed;right:3%;width:22%}
+  bottom: 0%;
+    position: fixed;
+    right: 19%;
+    width: 20%;}
 
 .Game2_Larrow_img {
+
   position: fixed;
-  right: 40%;
-  top: 30%;
-  width: 20%;
+  right: 44%;
+  top: 50%;
+  width: 12%;
   z-index: 0;
 }
 
 .Game2_Rarrow_img {
   position: fixed;
-  right: 15%;
-  top: 30%;
-  width: 20%;
+  right: 31%;
+  top: 49%;
+  width: 12%;
   z-index: 0;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-}
+  transform: scaleX(-1);}
 
 .senses_vision_Scene2 {
-  width: 13%;
-  position: fixed;
-  top: 40%;
-  left: 44%;
+  width: 11%;
+  position: absolute;
+  top: 53%;
+  left: 43.5%;
 }
 
 .senses_touch_Scene2 {
-  width: 13%;
+  width: 11%;
   position: fixed;
-  top: 86%;
-  left: 6%;}
+  top: 90%;
+  left: 17.4%;}
+
 
 .senses_smell_Scene2 {
-  width: 13%;
+  width: 11%;
   position: fixed;
-  top: 86%;
-  right: 7%;}
+  top: 90%;
+  right: 17.4%;}
 
 .senses_taste_Scene2 {
-  width: 13%;
+  width: 11%;
     position: fixed;
-    top: 38%;
-    left: 7%;}
+    top: 53%;
+    left: 17.4%;}
 
 .senses_hearing_Scene2 {
-  width: 18%;
+  width: 15%;
   position: fixed;
-  top: 39%;
-  right: 5%;}
+  top: 53%;
+  right: 15%;}
   

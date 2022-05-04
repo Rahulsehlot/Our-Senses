@@ -89,8 +89,10 @@ export default function Scene5({ nextload, setCount }) {
   }, []);
 
   const forward = () => {
-    stop_all_sounds();
-    setSceneId("/nose_Game2");
+    const timeout = setTimeout(() => {
+      stop_all_sounds();
+      setSceneId("/nose_Game2");
+    }, 1000);
   };
 
   return (
