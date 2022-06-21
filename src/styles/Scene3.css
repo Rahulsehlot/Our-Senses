@@ -1,5 +1,5 @@
 .Blue_layyer_wrapper {
-  height: 78%;
+  height: 81.5%;
   position: fixed;
   left: 9.5%;
   bottom: 0%;
@@ -14,7 +14,8 @@
 
 .Eyes_positionProp1 {
   right: 28%;
-  top: 35%;}
+  top: 35%;
+}
 
 .Nose_positionProp1 {
   right: 40%;
@@ -28,28 +29,34 @@
 .Tongue_positionProp1 {
   right: 40%;
   top: 27%;
-  z-index: 1;}
+  z-index: 1;
+}
 .Tongue_positionProp2 {
   right: 28%;
   top: 56%;
-  z-index: 3;}
+  z-index: 3;
+}
 .Tongue_positionProp3 {
   right: 17%;
   top: 27%;
-  z-index: 1;}
+  z-index: 1;
+}
 
 .Ears_positionProp1 {
   right: 40%;
   top: 27%;
-  z-index: 1;}
+  z-index: 1;
+}
 .Ears_positionProp2 {
   right: 28%;
   top: 56%;
-  z-index: 3;}
+  z-index: 3;
+}
 .Ears_positionProp3 {
   right: 17%;
   top: 27%;
-  z-index: 1;}
+  z-index: 1;
+}
 
 .Skin_positionProp1 {
   right: 40%;
@@ -76,12 +83,12 @@
   z-index: 5;
 }
 
-
-.organ-div{
+.organ-div {
   display: flex;
   height: 13%;
   justify-content: center;
   left: 211px;
   position: fixed;
   top: 62%;
-  width: 22%;}
+  width: 22%;
+}

@@ -46,7 +46,7 @@ export default function Scene3Organs({
             const samp = "/" + item + "_Scene3";
 
             if (triggered === false) {
-              setSceneId(samp);
+              // setSceneId(samp);
             }
           } else {
             if (triggered === false) {

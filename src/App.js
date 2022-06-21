@@ -19,8 +19,8 @@ import Game1Map2 from "./Scenes/Game1Screen/Game1Map2";
 import { SceneContext } from "./contexts/SceneContext";
 
 function App() {
-  const { SceneId, Assets, setheight } = useContext(SceneContext);
-  const [LandScape, setLandScape] = useState(false);
+  const { SceneId, Assets, setheight, Ipad, setIpad, LandScape, setLandScape } =
+    useContext(SceneContext);
   const Asset = useLoadAsset(IntroMap);
   const [Load, setLoad] = useState(true);
   const [next, setNext] = useState(0);
@@ -39,14 +39,20 @@ function App() {
   const [playing, setplaying] = useState(false);
 
   const resizer = () => {
-    setLandScape(window.innerWidth / window.innerHeight < 1.0);
     if (window.innerWidth <= 1264) {
       setheight("87%");
     } else {
       setheight("73%");
     }
+
+    setLandScape(window.innerWidth / window.innerHeight < 1.0);
+    setIpad(
+      window.innerWidth / window.innerHeight >= 1.3 &&
+        window.innerWidth / window.innerHeight <= 1.44
+    );
   };
-  console.log(LandScape);
+
+  // console.log(window.innerWidth, "Width", LandScape);
 
   useEffect(() => {
     const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
@@ -57,9 +63,6 @@ function App() {
   }, [shuffle_g1, shuffle_g2]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 3000);
     loadAudio();
   }, []);
 
@@ -94,6 +97,10 @@ function App() {
     loadAudio();
 
     window.addEventListener("resize", resizer);
+    setIpad(
+      window.innerWidth / window.innerHeight >= 1.3 &&
+        window.innerWidth / window.innerHeight <= 1.44
+    );
 
     return () => {
       window.removeEventListener("resize", resizer);
@@ -103,10 +110,11 @@ function App() {
   const toggleMute = () => {
     setmute(!mute);
   };
+  // console.log(LandScape);
 
-  if (LandScape) {
-    return <h1 id="landscapeMode">Rotate your device</h1>;
-  }
+  // if (LandScape) {
+  //   return <h1 id="landscapeMode">Rotate your device</h1>;
+  // }
 
   if (Load && !Asset.Loading)
     return (
@@ -119,260 +127,268 @@ function App() {
     );
 
   return (
-    <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
-      {!mute && SceneId !== "/" && (
-        <img
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
-          alt=""
-          className="mute_btn"
-          onClick={toggleMute}
-        />
-      )}
-      {mute && SceneId !== "/" && (
-        <img
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
-          alt=""
-          className="mute_btn"
-          onClick={toggleMute}
-        />
-      )}{" "}
-      <Router sceneId="/">
-        <Intro />
-      </Router>
-      <Router sceneId="/Scene2">
-        <Scene2 scenename={"Scene2"} />
-      </Router>
-      <Router sceneId="/Eyes_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={4}
-          soundId={4}
-          position={"Eyes_position"}
-          PropId={["6"]}
-          text_Id={19}
-          scenename={"Scene3"}
-          sceneid={"/Eyes_Scene3"}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Nose_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={0}
-          soundId={0}
-          PropId={["7", "8"]}
-          text_Id={20}
-          position={"Nose_position"}
-          scenename={"Scene3"}
-          sceneid={"/Nose_Scene3"}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Tongue_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={1}
-          soundId={1}
-          text_Id={22}
-          PropId={["9", "10", "11"]}
-          position={"Tongue_position"}
-          scenename={"Scene3"}
-          sceneid={"/Tongue_Scene3"}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Ears_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={2}
-          soundId={2}
-          text_Id={21}
-          PropId={["12", "13", "14"]}
-          position={"Ears_position"}
-          scenename={"Scene3"}
-          sceneid={"/Ears_Scene3"}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Skin_Scene3">
-        <Scene3Organs
-          next={next}
-          setNext={setNext}
-          imageId={3}
-          text_Id={23}
-          soundId={3}
-          PropId={["15", "16"]}
-          position={"Skin_position"}
-          scenename={"Scene3"}
-          sceneid={"/Skin_Scene3"}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Scene4">
-        <Scene4 nextload={shuffle_g1} />
-      </Router>
-      <Router sceneId="/Scene5">
-        <Scene5
-          scenename={"Scene2"}
-          setCount={setCount}
-          nextload={shuffle_g2}
-        />
-      </Router>
-      <Router sceneId="/Scene6">
-        <Scene6
-          setCounter={setCounter}
-          setG2Ans={setG2Ans}
-          setNext={setNext}
-          setG2Wrng={setG2Wrng}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/nose_Game2">
-        <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Nose"}
-          flowCount={0}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g2}
-        />
-      </Router>
-      <Router sceneId="/ear_Game2">
-        <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Ear"}
-          flowCount={1}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g2}
-        />
-      </Router>
-      <Router sceneId="/tongue_Game2">
-        <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Tongue"}
-          flowCount={2}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g2}
-        />
-      </Router>
-      <Router sceneId="/skin_Game2">
-        <Game2
-          G2Ans={G2Ans}
-          setG2Ans={setG2Ans}
-          G2Wrng={G2Wrng}
-          setG2Wrng={setG2Wrng}
-          G2answer={"Skin"}
-          flowCount={3}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g2}
-        />
-      </Router>
-      <Router sceneId="/Game1_1">
-        <Game1
-          nextScene={"/Game1_2"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={6}
-          G1SoundId={0}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g1}
-        />
-      </Router>
-      <Router sceneId="/Game1_2">
-        <Game1
-          nextScene={"/Game1_3"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={7}
-          G1SoundId={1}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g1}
-        />
-      </Router>
-      <Router sceneId="/Game1_3">
-        <Game1
-          nextScene={"/Game1_4"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={8}
-          G1SoundId={2}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g1}
-        />
-      </Router>
-      <Router sceneId="/Game1_4">
-        <Game1
-          nextScene={"/Game1_5"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={9}
-          G1SoundId={3}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g1}
-        />
-      </Router>
-      <Router sceneId="/Game1_5">
-        <Game1
-          nextScene={"/Game1_6"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={10}
-          G1SoundId={4}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g1}
-        />
-      </Router>
-      <Router sceneId="/Game1_6">
-        <Game1
-          nextScene={"/Game1_7"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={11}
-          G1SoundId={5}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g1}
-        />
-      </Router>
-      <Router sceneId="/Game1_7">
-        <Game1
-          nextScene={"/Scene5"}
-          hintPlacement={hintPlacement}
-          sethintPlacement={sethintPlacement}
-          G1ImgID={12}
-          G1SoundId={6}
-          count={count}
-          setCount={setCount}
-          nextload={shuffle_g1}
-        />
-      </Router>
-    </GameContainer>
+    <>
+      <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
+        Rotate your device
+      </h1>
+
+      <div style={{ opacity: LandScape ? 0 : 1 }}>
+        <GameContainer>
+          {!mute && SceneId !== "/" && (
+            <img
+              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
+              alt=""
+              className="mute_btn"
+              onClick={toggleMute}
+            />
+          )}
+          {mute && SceneId !== "/" && (
+            <img
+              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
+              alt=""
+              className="mute_btn"
+              onClick={toggleMute}
+            />
+          )}{" "}
+          <Router sceneId="/">
+            <Intro />
+          </Router>
+          <Router sceneId="/Scene2">
+            <Scene2 scenename={"Scene2"} />
+          </Router>
+          <Router sceneId="/Eyes_Scene3">
+            <Scene3Organs
+              next={next}
+              setNext={setNext}
+              imageId={4}
+              soundId={4}
+              position={"Eyes_position"}
+              PropId={["6"]}
+              text_Id={19}
+              scenename={"Scene3"}
+              sceneid={"/Eyes_Scene3"}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Nose_Scene3">
+            <Scene3Organs
+              next={next}
+              setNext={setNext}
+              imageId={0}
+              soundId={0}
+              PropId={["7", "8"]}
+              text_Id={20}
+              position={"Nose_position"}
+              scenename={"Scene3"}
+              sceneid={"/Nose_Scene3"}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Tongue_Scene3">
+            <Scene3Organs
+              next={next}
+              setNext={setNext}
+              imageId={1}
+              soundId={1}
+              text_Id={22}
+              PropId={["9", "10", "11"]}
+              position={"Tongue_position"}
+              scenename={"Scene3"}
+              sceneid={"/Tongue_Scene3"}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Ears_Scene3">
+            <Scene3Organs
+              next={next}
+              setNext={setNext}
+              imageId={2}
+              soundId={2}
+              text_Id={21}
+              PropId={["12", "13", "14"]}
+              position={"Ears_position"}
+              scenename={"Scene3"}
+              sceneid={"/Ears_Scene3"}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Skin_Scene3">
+            <Scene3Organs
+              next={next}
+              setNext={setNext}
+              imageId={3}
+              text_Id={23}
+              soundId={3}
+              PropId={["15", "16"]}
+              position={"Skin_position"}
+              scenename={"Scene3"}
+              sceneid={"/Skin_Scene3"}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Scene4">
+            <Scene4 nextload={shuffle_g1} />
+          </Router>
+          <Router sceneId="/Scene5">
+            <Scene5
+              scenename={"Scene2"}
+              setCount={setCount}
+              nextload={shuffle_g2}
+            />
+          </Router>
+          <Router sceneId="/Scene6">
+            <Scene6
+              setCounter={setCounter}
+              setG2Ans={setG2Ans}
+              setNext={setNext}
+              setG2Wrng={setG2Wrng}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/nose_Game2">
+            <Game2
+              G2Ans={G2Ans}
+              setG2Ans={setG2Ans}
+              G2Wrng={G2Wrng}
+              setG2Wrng={setG2Wrng}
+              G2answer={"Nose"}
+              flowCount={0}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g2}
+            />
+          </Router>
+          <Router sceneId="/ear_Game2">
+            <Game2
+              G2Ans={G2Ans}
+              setG2Ans={setG2Ans}
+              G2Wrng={G2Wrng}
+              setG2Wrng={setG2Wrng}
+              G2answer={"Ear"}
+              flowCount={1}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g2}
+            />
+          </Router>
+          <Router sceneId="/tongue_Game2">
+            <Game2
+              G2Ans={G2Ans}
+              setG2Ans={setG2Ans}
+              G2Wrng={G2Wrng}
+              setG2Wrng={setG2Wrng}
+              G2answer={"Tongue"}
+              flowCount={2}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g2}
+            />
+          </Router>
+          <Router sceneId="/skin_Game2">
+            <Game2
+              G2Ans={G2Ans}
+              setG2Ans={setG2Ans}
+              G2Wrng={G2Wrng}
+              setG2Wrng={setG2Wrng}
+              G2answer={"Skin"}
+              flowCount={3}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g2}
+            />
+          </Router>
+          <Router sceneId="/Game1_1">
+            <Game1
+              nextScene={"/Game1_2"}
+              hintPlacement={hintPlacement}
+              sethintPlacement={sethintPlacement}
+              G1ImgID={6}
+              G1SoundId={0}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g1}
+            />
+          </Router>
+          <Router sceneId="/Game1_2">
+            <Game1
+              nextScene={"/Game1_3"}
+              hintPlacement={hintPlacement}
+              sethintPlacement={sethintPlacement}
+              G1ImgID={7}
+              G1SoundId={1}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g1}
+            />
+          </Router>
+          <Router sceneId="/Game1_3">
+            <Game1
+              nextScene={"/Game1_4"}
+              hintPlacement={hintPlacement}
+              sethintPlacement={sethintPlacement}
+              G1ImgID={8}
+              G1SoundId={2}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g1}
+            />
+          </Router>
+          <Router sceneId="/Game1_4">
+            <Game1
+              nextScene={"/Game1_5"}
+              hintPlacement={hintPlacement}
+              sethintPlacement={sethintPlacement}
+              G1ImgID={9}
+              G1SoundId={3}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g1}
+            />
+          </Router>
+          <Router sceneId="/Game1_5">
+            <Game1
+              nextScene={"/Game1_6"}
+              hintPlacement={hintPlacement}
+              sethintPlacement={sethintPlacement}
+              G1ImgID={10}
+              G1SoundId={4}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g1}
+            />
+          </Router>
+          <Router sceneId="/Game1_6">
+            <Game1
+              nextScene={"/Game1_7"}
+              hintPlacement={hintPlacement}
+              sethintPlacement={sethintPlacement}
+              G1ImgID={11}
+              G1SoundId={5}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g1}
+            />
+          </Router>
+          <Router sceneId="/Game1_7">
+            <Game1
+              nextScene={"/Scene5"}
+              hintPlacement={hintPlacement}
+              sethintPlacement={sethintPlacement}
+              G1ImgID={12}
+              G1SoundId={6}
+              count={count}
+              setCount={setCount}
+              nextload={shuffle_g1}
+            />
+          </Router>
+        </GameContainer>
+      </div>
+    </>
   );
 }
 

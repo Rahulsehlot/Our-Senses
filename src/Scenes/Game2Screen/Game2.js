@@ -268,7 +268,7 @@ export default function Game2({
             className="Option1_Button"
             style={{
               display: option1Verify === 1 ? "block" : "none",
-              left: number === 1 ? "18.6%" : "50.6%",
+              left: number === 1 ? "18.55%" : "50.6%",
             }}
           />
 
@@ -296,7 +296,7 @@ export default function Game2({
             className="Option2_Button"
             style={{
               display: option2Wrng === 1 ? "block" : "none",
-              left: number === 1 ? "50.6%" : "18.6%",
+              left: number === 1 ? "50.6%" : "18.55%",
             }}
           />
 
