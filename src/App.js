@@ -55,8 +55,6 @@ function App() {
     );
   };
 
-  // console.log(window.innerWidth, "Width", LandScape);
-
   useEffect(() => {
     const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
     const shuffle_2 = Math.floor(0 + Math.random() * (3 - 0));
@@ -94,7 +92,6 @@ function App() {
   }, [mute]);
 
   useEffect(() => {
-    console.log(SceneId);
     setTimeout(() => {
       setLoad(false);
     }, 3000);
@@ -115,11 +112,6 @@ function App() {
   const toggleMute = () => {
     setmute(!mute);
   };
-  // console.log(LandScape);
-
-  // if (LandScape) {
-  //   return <h1 id="landscapeMode">Rotate your device</h1>;
-  // }
 
   if (Load && !Asset.Loading)
     return (
@@ -133,44 +125,11 @@ function App() {
 
   return (
     <>
-      {/* {SceneId !== "/" &&
-        SceneId !== "/Scene2" &&
-        SceneId !== "/Eyes_Scene3" &&
-        SceneId !== "/Nose_Scene3" &&
-        SceneId !== "/Tongue_Scene3" &&
-        SceneId !== "/Ears_Scene3" &&
-        SceneId !== "/Skin_Scene3" &&
-        SceneId !== "/Scene4" &&
-        SceneId !== "/Scene5" &&
-        SceneId !== "/Scene6" && <Star num={count} />} */}
-
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
         Rotate your device
       </h1>
 
       <div style={{ opacity: LandScape ? 0 : 1 }}>
-        {/* {SceneId !== "/" &&
-          SceneId !== "/Scene2" &&
-          SceneId !== "/Game1_1" &&
-          SceneId !== "/Game1_2" &&
-          SceneId !== "/Game1_3" &&
-          SceneId !== "/Game1_4" &&
-          SceneId !== "/Game1_5" &&
-          SceneId !== "/Game1_6" &&
-          SceneId !== "/Game1_7" &&
-          SceneId !== "/nose_Game2" &&
-          SceneId !== "/ear_Game2" &&
-          SceneId !== "/tongue_Game2" &&
-          SceneId !== "/skin_Game2" &&
-          SceneId !== "/Scene4" &&
-          SceneId !== "/Scene5" &&
-          SceneId !== "/Scene6" && (
-            <img
-              src={`data:image/svg+xml;utf8,${encodeURIComponent(Board)}`}
-              alt=""
-              className="Blue_layyer_wrapper"
-            />
-          )} */}
         {!mute && SceneId !== "/" && (
           <img
             src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}

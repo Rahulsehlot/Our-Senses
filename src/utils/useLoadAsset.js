@@ -14,7 +14,6 @@ export default function useLoadAsset(Map) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   useEffect(() => {
-    console.log(SceneId);
     const newSceneData = {
       Bg: "",
       sounds: [],
@@ -78,7 +77,6 @@ export default function useLoadAsset(Map) {
 
     Promise.all([loadImage, loadAudio, loadSprites, loadLottie])
       .then((v) => {
-        // console.log(v)
         setLoading(false);
       })
       .catch((err) => {
