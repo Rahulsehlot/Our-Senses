@@ -249,7 +249,7 @@ export default function Game2({
             onClick={Option1}
             className="Option1"
             style={{
-              left: number === 1 ? "19.25%" : "51.20%",
+              left: number === 1 ? "18.25%" : "49.2%",
               cursor: playing === false ? "pointer" : "",
             }}
           >
@@ -268,7 +268,7 @@ export default function Game2({
             className="Option1_Button"
             style={{
               display: option1Verify === 1 ? "block" : "none",
-              left: number === 1 ? "18.55%" : "50.6%",
+              left: number === 1 ? "17.55%" : "48.6%",
             }}
           />
 
@@ -277,7 +277,7 @@ export default function Game2({
             onClick={Option2}
             className="Option2"
             style={{
-              left: number === 1 ? "51.20%" : "19.25%",
+              left: number === 1 ? "49.2%" : "18.25%",
               cursor: playing === false ? "pointer" : "",
             }}
           >
@@ -296,7 +296,7 @@ export default function Game2({
             className="Option2_Button"
             style={{
               display: option2Wrng === 1 ? "block" : "none",
-              left: number === 1 ? "50.6%" : "18.55%",
+              left: number === 1 ? "48.6%" : "17.55%",
             }}
           />
 

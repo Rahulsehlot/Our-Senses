@@ -148,7 +148,8 @@ export default function Scene2({ scenename }) {
             style={{
               border: highlightnose == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
-              right: "16%",
+              right: "24%",
+              top: "71%",
             }}
           />
 
@@ -168,6 +169,7 @@ export default function Scene2({ scenename }) {
               border: highlighttongue == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
               left: "16%",
+              top: "41%",
             }}
           />
           <Image
@@ -185,7 +187,8 @@ export default function Scene2({ scenename }) {
             style={{
               border: highlightear == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
-              right: "16%",
+              right: "24%",
+              top: "41%",
             }}
           />
 
@@ -211,6 +214,7 @@ export default function Scene2({ scenename }) {
               border: highlightskin == 1 ? "0.5vw solid yellow" : "",
               borderRadius: "100%",
               left: "16%",
+              top: "71%",
             }}
           />
 
@@ -228,7 +232,7 @@ export default function Scene2({ scenename }) {
             className="senses_vision_img"
             style={{
               border: highlighteye == 1 ? "0.5vw solid yellow" : "",
-              top: "25%",
+              top: "38%",
               borderRadius: "100%",
             }}
           />

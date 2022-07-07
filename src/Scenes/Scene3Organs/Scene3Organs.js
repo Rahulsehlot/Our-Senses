@@ -46,7 +46,7 @@ export default function Scene3Organs({
             const samp = "/" + item + "_Scene3";
 
             if (triggered === false) {
-              // setSceneId(samp);
+              setSceneId(samp);
             }
           } else {
             if (triggered === false) {
@@ -125,11 +125,7 @@ export default function Scene3Organs({
             src={Assets?.Scene3?.sprites[imageId]}
             alt="txt"
             id="fadeup"
-            className="senses_vision_img"
-            style={{
-              top: "34%",
-              left: "15.5%",
-            }}
+            className="senses_vision_img_scene3"
           />
 
           <Image
@@ -137,7 +133,7 @@ export default function Scene3Organs({
             alt="txt"
             id="fadeup"
             className={position + "Prop1"}
-            style={{ position: "fixed", width: "16%" }}
+            style={{ position: "fixed", width: "11%" }}
           />
 
           <Image
@@ -145,14 +141,14 @@ export default function Scene3Organs({
             alt="txt"
             id="fadeup"
             className={position + "Prop2"}
-            style={{ position: "fixed", width: "16%" }}
+            style={{ position: "fixed", width: "11%" }}
           />
           <Image
             src={Assets?.Scene3?.sprites[PropId[2]]}
             alt="txt"
             id="fadeup"
             className={position + "Prop3"}
-            style={{ position: "fixed", width: "16%" }}
+            style={{ position: "fixed", width: "11%" }}
           />
 
           <div className="organ-div">

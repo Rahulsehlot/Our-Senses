@@ -1,8 +1,8 @@
 .dotted_Line {
-  height: 37%;
-  left: 14%;
+  height: 33%;
+  left: 11%;
   position: fixed;
-  top: 54%;
+  top: 63%;
   transform: translate(-50% -50%);
   width: 72%;
   z-index: 1;
@@ -11,35 +11,35 @@
 .senses_taste_img_game1Disabled,
 .senses_taste_img_game1 {
   border-radius: 100%;
-  left: 43%;
+  left: 41%;
   position: fixed;
-  top: 71%;
-  width: 13%;
+  top: 79%;
+  width: 10%;
   z-index: 2;
 }
 
 .Taste_Button {
-  left: 41.7%;
+  left: 39.8%;
   position: fixed;
-  top: 68.25%;
-  width: 15.5%;
+  top: 76.5%;
+  width: 12.4%;
   z-index: 3;
 }
 .senses_smell_img_game1Disabled,
 .senses_smell_img_game1 {
   border-radius: 100%;
-  left: 28%;
+  left: 26%;
   position: fixed;
-  top: 65%;
-  width: 13%;
+  top: 74%;
+  width: 10%;
   z-index: 2;
 }
 
 .Nose_Button {
-  left: 26.75%;
+  left: 24.8%;
   position: fixed;
-  top: 62.25%;
-  width: 15.5%;
+  top: 71.5%;
+  width: 12.4%;
   z-index: 3;
 }
 
@@ -47,17 +47,17 @@
 .senses_touch_img_game1 {
   border-radius: 100%;
   position: fixed;
-  right: 16%;
-  top: 47%;
-  width: 13%;
+  right: 21%;
+  top: 61%;
+  width: 10%;
   z-index: 2;
 }
 
 .Touch_Button {
   position: fixed;
-  right: 14.75%;
-  top: 44.25%;
-  width: 15.5%;
+  right: 19.75%;
+  top: 58.4%;
+  width: 12.4%;
   z-index: 3;
 }
 
@@ -65,17 +65,17 @@
 .senses_hearing_img_game1 {
   border-radius: 100%;
   position: fixed;
-  right: 29.5%;
-  top: 66%;
-  width: 13%;
+  right: 33.5%;
+  top: 75%;
+  width: 10%;
   z-index: 2;
 }
 
 .Hearing_Button {
   position: fixed;
-  right: 28.25%;
-  top: 63.25%;
-  width: 15.5%;
+  right: 32.25%;
+  top: 72.4%;
+  width: 12.4%;
   z-index: 3;
 }
 
@@ -88,17 +88,17 @@
 .senses_vision_img_game1 {
   border-radius: 100%;
   position: fixed;
-  left: 16%;
-  top: 47%;
-  width: 13%;
+  left: 14%;
+  top: 63%;
+  width: 10%;
   z-index: 2;
 }
 
 .Vision_Button {
-  left: 14.9%;
+  left: 12.9%;
   position: fixed;
-  top: 44%;
-  width: 15.5%;
+  top: 60.4%;
+  width: 12.4%;
   z-index: 3;
 }
 
@@ -106,16 +106,17 @@
   position: fixed;
   left: 38%;
   border-radius: 50%;
-  top: 25%;
-  width: 22%;
+  top: 41%;
+  width: 17%;
 }
 .audio_replay_iconDisabled,
 .audio_replay_icon {
   border-radius: 100%;
   position: absolute;
-  right: 13%;
-  top: 86%;
-  width: 5%;
+  right: 21%;
+  top: 89%;
+  width: 4%;
+  z-index: 232;
 }
 
 .senses_taste_img_game1:active,

@@ -29,6 +29,7 @@ const IntroMap = {
     `${imgUrl}progress_bar/sb_27_progress_bar.svg`,
     `${imgUrl}progress_bar/sb_27_progress_bar_gray_star.svg`,
     `${imgUrl}progress_bar/sb_27_progress_bar_yellow_star.svg`,
+    `${imgUrl}blue_layer.svg`,
   ],
 
   sounds: [`${soundUrl}intro_sound.mp3`],

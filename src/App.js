@@ -17,6 +17,8 @@ import IntroMap from "./Scenes/intro/AssetMap";
 import Game1Map1 from "./Scenes/Game1Screen/Game1Map";
 import Game1Map2 from "./Scenes/Game1Screen/Game1Map2";
 import { SceneContext } from "./contexts/SceneContext";
+import Image from "./utils/elements/Image";
+import Star from "./Scenes/progressBar";
 
 function App() {
   const { SceneId, Assets, setheight, Ipad, setIpad, LandScape, setLandScape } =
@@ -31,6 +33,7 @@ function App() {
   const [BG_sound, setBG_sound] = useState(null);
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
+  const [Board, setBoard] = useState(null);
   const [hintPlacement, sethintPlacement] = useState(0);
   const [count, setCount] = useState(0);
   const [shuffle_g1, setshuffle_g1] = useState("");
@@ -70,6 +73,7 @@ function App() {
     setBG_sound(await AudioPlayer2("ee02_ow_och_pl1/sounds/bg_sound.mp3"));
     seticon1(await LoadImage("ee02_ow_och_pl1/images/sound.svg"));
     seticon2(await LoadImage("ee02_ow_och_pl1/images/nosound.svg"));
+    setBoard(await LoadImage("ee02_ow_och_pl1/images/blue_layer.svg"));
   };
 
   useEffect(() => {
@@ -90,6 +94,7 @@ function App() {
   }, [mute]);
 
   useEffect(() => {
+    console.log(SceneId);
     setTimeout(() => {
       setLoad(false);
     }, 3000);
@@ -128,28 +133,61 @@ function App() {
 
   return (
     <>
+      {/* {SceneId !== "/" &&
+        SceneId !== "/Scene2" &&
+        SceneId !== "/Eyes_Scene3" &&
+        SceneId !== "/Nose_Scene3" &&
+        SceneId !== "/Tongue_Scene3" &&
+        SceneId !== "/Ears_Scene3" &&
+        SceneId !== "/Skin_Scene3" &&
+        SceneId !== "/Scene4" &&
+        SceneId !== "/Scene5" &&
+        SceneId !== "/Scene6" && <Star num={count} />} */}
+
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
         Rotate your device
       </h1>
 
       <div style={{ opacity: LandScape ? 0 : 1 }}>
+        {/* {SceneId !== "/" &&
+          SceneId !== "/Scene2" &&
+          SceneId !== "/Game1_1" &&
+          SceneId !== "/Game1_2" &&
+          SceneId !== "/Game1_3" &&
+          SceneId !== "/Game1_4" &&
+          SceneId !== "/Game1_5" &&
+          SceneId !== "/Game1_6" &&
+          SceneId !== "/Game1_7" &&
+          SceneId !== "/nose_Game2" &&
+          SceneId !== "/ear_Game2" &&
+          SceneId !== "/tongue_Game2" &&
+          SceneId !== "/skin_Game2" &&
+          SceneId !== "/Scene4" &&
+          SceneId !== "/Scene5" &&
+          SceneId !== "/Scene6" && (
+            <img
+              src={`data:image/svg+xml;utf8,${encodeURIComponent(Board)}`}
+              alt=""
+              className="Blue_layyer_wrapper"
+            />
+          )} */}
+        {!mute && SceneId !== "/" && (
+          <img
+            src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
+            alt=""
+            className="mute_btn"
+            onClick={toggleMute}
+          />
+        )}
+        {mute && SceneId !== "/" && (
+          <img
+            src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
+            alt=""
+            className="mute_btn"
+            onClick={toggleMute}
+          />
+        )}{" "}
         <GameContainer>
-          {!mute && SceneId !== "/" && (
-            <img
-              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
-              alt=""
-              className="mute_btn"
-              onClick={toggleMute}
-            />
-          )}
-          {mute && SceneId !== "/" && (
-            <img
-              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
-              alt=""
-              className="mute_btn"
-              onClick={toggleMute}
-            />
-          )}{" "}
           <Router sceneId="/">
             <Intro />
           </Router>

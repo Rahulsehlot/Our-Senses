@@ -5,14 +5,7 @@ import { LoadStars } from "./Helper_function";
 
 export default function Star({ num }) {
   const [isLoading, setisLoading] = useState(true);
-  const { Assets } = useContext(SceneContext);
-
-  const [Grey, setGrey] = useState("");
-  const [Gold, setGold] = useState("");
-
-  useEffect(() => {
-    LoadStars(setGrey, setGold);
-  }, []);
+  const { Assets, LandScape } = useContext(SceneContext);
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,7 +17,7 @@ export default function Star({ num }) {
     <>
       {" "}
       {!isLoading && (
-        <div className="fadeup">
+        <div className="star-wrapper">
           <Image
             src={Assets?.intro?.sprites[12]}
             alt="txt"
@@ -32,7 +25,7 @@ export default function Star({ num }) {
             className="progress_Bar"
           />
 
-          <div id="star_wrap0" style={{ position: "fixed" }}>
+          <div id="star_wrap0">
             <Image
               src={
                 num >= 1

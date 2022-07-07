@@ -70,7 +70,7 @@ export default function Scene4({ nextload }) {
   }, []);
 
   const btn_style = {
-    width: "13%",
+    width: "10%",
     position: "fixed",
     bottom: "4.5%",
     borderradius: "100%",
@@ -79,7 +79,8 @@ export default function Scene4({ nextload }) {
 
   const txt_style = {
     position: "fixed",
-    bottom: "33.5%",
+    bottom: "27.5%",
+    width: "7%",
   };
 
   const forward = () => {

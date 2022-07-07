@@ -1,18 +1,20 @@
 .Game2_question_img {
   position: fixed;
-  left: 41%;
-  top: 26%;
-  width: 18%;
-  z-index: 2;}
+  left: 39.2%;
+  top: 39%;
+  width: 13%;
+  z-index: 2;
+}
 
 .Option1 {
   display: flex;
-  height: 50.5%;
+  height: 40.5%;
   justify-content: center;
-  top: 45%;
-  width: 29.5%;
+  top: 54%;
+  width: 23.5%;
   z-index: 1;
-  position: fixed;}
+  position: fixed;
+}
 
 .Option1_Img {
   width: 85%;
@@ -26,28 +28,31 @@
 
 .Option2 {
   display: flex;
-  height: 50.5%;
+  height: 40.5%;
   justify-content: center;
   position: fixed;
-  top: 45%;
+  top: 54%;
   transform: translate(-50% -50%);
-  width: 29.5%;
-  z-index: 1;}
+  width: 23.5%;
+  z-index: 1;
+}
 
 .Option2BG {
   position: fixed;
-  right: 19%;
-  top: 44%;
+  right: 27%;
+  top: 53%;
   transform: translate(-50% -50%);
-  width: 30%;
-  z-index: 1;  }
+  width: 24%;
+  z-index: 1;
+}
 .Option1BG {
-position: fixed;
-    left: 19%;
-    top: 44%;
-    transform: translate(-50% -50%);
-    width: 30%;
-    z-index: 1;}
+  position: fixed;
+  left: 18%;
+  top: 53%;
+  transform: translate(-50% -50%);
+  width: 24%;
+  z-index: 1;
+}
 
 .audio_replay_icon_Game2Disabled,
 .audio_replay_icon_Game2 {
@@ -66,17 +71,17 @@ position: fixed;
 .Option1_Button {
   position: fixed;
   left: 7.3%;
-  top: 44%;
+  top: 53%;
   transform: translate(-50% -50%);
-  width: 30.88%;
-  z-index: 1;}
+  width: 24.88%;
+  z-index: 1;
+}
 
 .Option2_Button {
   position: fixed;
   left: 47.3%;
-  top: 44%;
+  top: 53%;
   transform: translate(-50% -50%);
-  width: 30.88%;
-    z-index: 1;}
-
-
+  width: 24.88%;
+  z-index: 1;
+}
